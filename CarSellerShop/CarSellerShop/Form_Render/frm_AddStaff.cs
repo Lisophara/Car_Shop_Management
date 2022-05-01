@@ -98,6 +98,9 @@ namespace CarSellerShop.Form_Render
             string day = dp_Dob.Value.Day.ToString();
             string mounth = dp_Dob.Value.Month.ToString();
             string year = dp_Dob.Value.Year.ToString();
+            
+            gender = cmb_Gender.SelectedIndex == 0 ? 'M' : 'F';
+            role = cmb_Role.SelectedIndex == 0 ? 3 : 2;
 
             if (txt_FirstName.TextValue == "" || txt_LastName.TextValue == "" || txt_Phone.TextValue == "" || pic_Image.Image == null ||
                 txt_NationalID.TextValue == "")
@@ -119,8 +122,6 @@ namespace CarSellerShop.Form_Render
                 {
                     string image_path = data.SaveImage(image);
                     bool save_success = false;
-                    gender = cmb_Gender.SelectedIndex == 0 ? 'M' : 'F';
-                    role = cmb_Role.SelectedIndex == 0 ? 3 : 2;
                     save_success = data.Write_Data(table: "`stuff_info`",
                             dataToInsert: $"DEFAULT, " +
                             $"'{txt_NationalID.TextValue}', " +
@@ -154,7 +155,49 @@ namespace CarSellerShop.Form_Render
                         MessageBox.Show("Some information are missing or Incorrect format!", "Something gone wrong!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     }
                 }
+                
+            }
+            else
+            {
+                if (MessageBox.Show("Do you want to update this record?", "Update Record", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    string image_path = data.SaveImage(image);
+                    bool update_success = false;
+                    //stuff_id, national_id, stuff_first_name, stuff_last_name, stuff_gender, dob, stuff_phone_num, stuff_addr, stuff_image_path, stuff_state_id, is_deleted
 
+                    update_success = data.Update_Data(table: "stuff_info",
+                                col_Value:
+                                $"`national_id` = '{txt_NationalID.TextValue}', " +
+                                $"`stuff_first_name` = '{txt_FirstName.TextValue}', " +
+                                $"`stuff_last_name` = '{txt_LastName.TextValue}', " +
+                                $"`stuff_gender` = '{gender}', " +
+                                $"`dob` = DATE('{year}-{mounth}-{day}'), " +
+                                $"`stuff_phone_num` = '{txt_Phone.TextValue}', " +
+                                $"`stuff_addr` = '{txt_Address.TextValue}', " +
+                                $"`stuff_image_path` = '{image_path}', " +
+                                $"`stuff_state_id` = {role}, ",
+                                condition: $"WHERE stuff_id = {id}");
+                    if (update_success)
+                    {
+                        MessageBox.Show("Update!", "Update Success!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        txt_FirstName.TextValue = "";
+                        txt_LastName.TextValue = "";
+                        txt_NationalID.TextValue = "";
+                        txt_Address.TextValue = "";
+                        txt_Phone.TextValue = "";
+                        dp_Dob.Value = new DateTime(2000, 1, 1);
+                        cmb_Gender.SelectedIndex = 0;
+                        cmb_Role.SelectedIndex = 0;
+                        image = "";
+                        image_path = "";
+                        panel_BrowseImage.Visible = true;
+                        panel_BrowseImage.Enabled = true;
+                    }
+                    else
+                    {
+                        MessageBox.Show("Some information are missing or Incorrect format!", "Something gone wrong!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
+                }
             }
         }
 
