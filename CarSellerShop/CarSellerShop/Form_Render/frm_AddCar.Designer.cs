@@ -357,7 +357,7 @@ namespace CarSellerShop.Form_Render
             this.panel_HeadWrapper.Controls.Add(this.panel_Head);
             this.panel_HeadWrapper.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel_HeadWrapper.Location = new System.Drawing.Point(0, 0);
-            this.panel_HeadWrapper.MoveForm = null;
+            this.panel_HeadWrapper.MoveForm = this;
             this.panel_HeadWrapper.Name = "panel_HeadWrapper";
             this.panel_HeadWrapper.Padding = new System.Windows.Forms.Padding(20);
             this.panel_HeadWrapper.Size = new System.Drawing.Size(753, 80);
@@ -376,7 +376,7 @@ namespace CarSellerShop.Form_Render
             this.panel_Head.Controls.Add(this.pic_back);
             this.panel_Head.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel_Head.Location = new System.Drawing.Point(20, 20);
-            this.panel_Head.MoveForm = null;
+            this.panel_Head.MoveForm = this;
             this.panel_Head.Name = "panel_Head";
             this.panel_Head.Size = new System.Drawing.Size(713, 40);
             this.panel_Head.TabIndex = 1;

@@ -106,6 +106,15 @@ namespace CarSellerShop.Form_Render
                     if (save_success)
                     {
                         MessageBox.Show("Save!", "Save Success!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        txt_Model.TextValue = "";
+                        txt_Color.TextValue = "";
+                        txt_CreateYear.TextValue = "";
+                        image_path = "";
+                        cmb_Type.SelectedIndex = 2;
+                        cmb_Status.SelectedIndex = 0;
+                        txt_Price.TextValue = "";
+                        panel_BrowseImage.Visible = true;
+                        panel_BrowseImage.Enabled = true;
                     }
                     else
                     {
@@ -122,7 +131,6 @@ namespace CarSellerShop.Form_Render
                     update_success = data.Update_Data(table: "car",
                                      //identifier, model_name, color, create_year, image, car_status, car_type, price, is_sold
                                      col_Value: $"`model_name` = '{txt_Model.TextValue}'" +
-                                         $"`model_name` = '{txt_Model.TextValue}'" +
                                          $"`color` = '{txt_Color.TextValue}'" +
                                          $"`create_year` = {txt_CreateYear.TextValue}" +
                                          $"`image` = '{image_path}'" +
@@ -133,7 +141,17 @@ namespace CarSellerShop.Form_Render
                     if (update_success)
                     {
                         MessageBox.Show("Update!", "Update Success!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        txt_Model.TextValue = "";
+                        txt_Color.TextValue = "";
+                        txt_CreateYear.TextValue = "";
+                        image_path = "";
+                        cmb_Type.SelectedIndex = 2;
+                        cmb_Status.SelectedIndex = 0;
+                        txt_Price.TextValue = "";
+                        panel_BrowseImage.Visible = true;
+                        panel_BrowseImage.Enabled = true;
                     }
+
                     else
                     {
                         MessageBox.Show("Some information are missing or Incorrect format!", "Something gone wrong!", MessageBoxButtons.OK, MessageBoxIcon.Warning);

@@ -35,9 +35,9 @@ D:\RUPP\Year3\C#\SourceCode\Project S2\CarSellerShop\CarSellerShop\obj\Debug\Car
 D:\RUPP\Year3\C#\SourceCode\Project S2\CarSellerShop\CarSellerShop\obj\Debug\CarSellerShop.Form_Render.frm_ForgotPassword.resources
 D:\RUPP\Year3\C#\SourceCode\Project S2\CarSellerShop\CarSellerShop\obj\Debug\CarSellerShop.Form_Render.frm_SellProduce.resources
 D:\RUPP\Year3\C#\SourceCode\Project S2\CarSellerShop\CarSellerShop\obj\Debug\CarSellerShop.Form_Render.frm_ManageStuff.resources
-D:\RUPP\Year3\C#\SourceCode\Project S2\CarSellerShop\CarSellerShop\obj\Debug\CarSellerShop.Form_Render.frm_AddStuff.resources
 D:\RUPP\Year3\C#\SourceCode\Project S2\CarSellerShop\CarSellerShop\obj\Debug\CarSellerShop.SubItem.car_Info.resources
 D:\RUPP\Year3\C#\SourceCode\Project S2\CarSellerShop\CarSellerShop\obj\Debug\CarSellerShop.SubItem.order_Info.resources
 D:\RUPP\Year3\C#\SourceCode\Project S2\CarSellerShop\CarSellerShop\obj\Debug\CarSellerShop.SubItem.staff_Info.resources
 D:\RUPP\Year3\C#\SourceCode\Project S2\CarSellerShop\CarSellerShop\obj\Debug\CarSellerShop.Form_Render.frm_Register.resources
 D:\RUPP\Year3\C#\SourceCode\Project S2\CarSellerShop\CarSellerShop\obj\Debug\CarSellerShop.Form_Render.frm_AddCar.resources
+D:\RUPP\Year3\C#\SourceCode\Project S2\CarSellerShop\CarSellerShop\obj\Debug\CarSellerShop.Form_Render.frm_AddStaff.resources
