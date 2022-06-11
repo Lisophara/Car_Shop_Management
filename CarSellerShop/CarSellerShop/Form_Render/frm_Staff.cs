@@ -6,7 +6,7 @@ using System.Drawing;
 
 namespace CarSellerShop.Form_Render
 {
-    public partial class frm_AddStaff : Form
+    public partial class frm_Staff : Form
     {
 
         #region -> Variable
@@ -19,7 +19,7 @@ namespace CarSellerShop.Form_Render
         private string id;
         #endregion
 
-        public frm_AddStaff()
+        public frm_Staff()
         {
             InitializeComponent();
 
@@ -27,7 +27,7 @@ namespace CarSellerShop.Form_Render
 
         }
 
-        public frm_AddStaff(string id, bool update = false)
+        public frm_Staff(string id, bool update = false)
         {
             InitializeComponent();
             this.update = update;
@@ -204,7 +204,7 @@ namespace CarSellerShop.Form_Render
         private void pic_back_Click(object sender, EventArgs e)
         {
             this.Dispose();
-            new frm_ManageStuff().ShowDialog();
+            new frm_ManageStaff().ShowDialog();
         }
 
         #endregion

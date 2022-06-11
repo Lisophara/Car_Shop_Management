@@ -47,7 +47,7 @@ namespace CarSellerShop.Form_Render
                 return;
             }
             this.Visible = false;
-            Form frm_sell = new frm_SellProduce();
+            Form frm_sell = new frm_Product();
             frm_sell.Tag = result.Rows[0][0].ToString();
             frm_sell.ShowDialog();
             txt_Username.TextValue = "";

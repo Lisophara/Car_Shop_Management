@@ -1,7 +1,7 @@
 ﻿
 namespace CarSellerShop.Form_Render
 {
-    partial class frm_AddCar
+    partial class frm_Car
     {
         /// <summary>
         /// Required designer variable.
@@ -29,7 +29,7 @@ namespace CarSellerShop.Form_Render
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frm_AddCar));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frm_Car));
             this.label2 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();

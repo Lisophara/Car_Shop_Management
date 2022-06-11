@@ -1,7 +1,7 @@
 ﻿
 namespace CarSellerShop.Form_Render
 {
-    partial class frm_ManageStuff
+    partial class frm_ManageStaff
     {
         /// <summary>
         /// Required designer variable.
@@ -29,7 +29,7 @@ namespace CarSellerShop.Form_Render
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frm_ManageStuff));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frm_ManageStaff));
             this.tb_StuffInfo = new System.Windows.Forms.TableLayoutPanel();
             this.panel_HeadWrapper = new CarSellerShop.Custom.CustomPanel();
             this.txt_Search = new CarSellerShop.RJControls.RJTextBox();

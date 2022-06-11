@@ -14,7 +14,7 @@ namespace CarSellerShop
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frm_SellProduce());
+            Application.Run(new frm_Product());
         }
     }
 }

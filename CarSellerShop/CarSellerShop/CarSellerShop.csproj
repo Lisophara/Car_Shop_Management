@@ -108,6 +108,9 @@
     <Compile Include="Custom\RJCircularPictureBox.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Custom\RJComboBox.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="Custom\RJTextBox.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -125,23 +128,23 @@
     </Compile>
     <Compile Include="Data\Data_IO.cs" />
     <Compile Include="Data\TextAlignment.cs" />
-    <Compile Include="Form_Render\frm_AddCar.cs">
+    <Compile Include="Form_Render\frm_Car.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form_Render\frm_AddCar.Designer.cs">
-      <DependentUpon>frm_AddCar.cs</DependentUpon>
+    <Compile Include="Form_Render\frm_Car.Designer.cs">
+      <DependentUpon>frm_Car.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form_Render\frm_AddStaff.cs">
+    <Compile Include="Form_Render\frm_Staff.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form_Render\frm_AddStaff.Designer.cs">
-      <DependentUpon>frm_AddStaff.cs</DependentUpon>
+    <Compile Include="Form_Render\frm_Staff.Designer.cs">
+      <DependentUpon>frm_Staff.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form_Render\frm_ManageStuff.cs">
+    <Compile Include="Form_Render\frm_ManageStaff.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form_Render\frm_ManageStuff.Designer.cs">
-      <DependentUpon>frm_ManageStuff.cs</DependentUpon>
+    <Compile Include="Form_Render\frm_ManageStaff.Designer.cs">
+      <DependentUpon>frm_ManageStaff.cs</DependentUpon>
     </Compile>
     <Compile Include="Form_Render\frm_ForgotPassword.cs">
       <SubType>Form</SubType>
@@ -155,17 +158,23 @@
     <Compile Include="Form_Render\frm_Login.Designer.cs">
       <DependentUpon>frm_Login.cs</DependentUpon>
     </Compile>
+    <Compile Include="Form_Render\frm_Sell.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_Render\frm_Sell.Designer.cs">
+      <DependentUpon>frm_Sell.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form_Render\frm_Register.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Form_Render\frm_Register.Designer.cs">
       <DependentUpon>frm_Register.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form_Render\frm_SellProduce.cs">
+    <Compile Include="Form_Render\frm_Product.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form_Render\frm_SellProduce.Designer.cs">
-      <DependentUpon>frm_SellProduce.cs</DependentUpon>
+    <Compile Include="Form_Render\frm_Product.Designer.cs">
+      <DependentUpon>frm_Product.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -190,11 +199,11 @@
     <EmbeddedResource Include="Custom\RJTextBox.resx">
       <DependentUpon>RJTextBox.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form_Render\frm_AddCar.resx">
-      <DependentUpon>frm_AddCar.cs</DependentUpon>
+    <EmbeddedResource Include="Form_Render\frm_Car.resx">
+      <DependentUpon>frm_Car.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form_Render\frm_AddStaff.resx">
-      <DependentUpon>frm_AddStaff.cs</DependentUpon>
+    <EmbeddedResource Include="Form_Render\frm_Staff.resx">
+      <DependentUpon>frm_Staff.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form_Render\frm_ForgotPassword.resx">
       <DependentUpon>frm_ForgotPassword.cs</DependentUpon>
@@ -202,14 +211,17 @@
     <EmbeddedResource Include="Form_Render\frm_Login.resx">
       <DependentUpon>frm_Login.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form_Render\frm_ManageStuff.resx">
-      <DependentUpon>frm_ManageStuff.cs</DependentUpon>
+    <EmbeddedResource Include="Form_Render\frm_ManageStaff.resx">
+      <DependentUpon>frm_ManageStaff.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_Render\frm_Sell.resx">
+      <DependentUpon>frm_Sell.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form_Render\frm_Register.resx">
       <DependentUpon>frm_Register.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form_Render\frm_SellProduce.resx">
-      <DependentUpon>frm_SellProduce.cs</DependentUpon>
+    <EmbeddedResource Include="Form_Render\frm_Product.resx">
+      <DependentUpon>frm_Product.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

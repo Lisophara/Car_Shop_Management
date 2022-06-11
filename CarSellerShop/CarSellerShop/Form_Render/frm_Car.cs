@@ -11,7 +11,7 @@ using System.Windows.Forms;
 
 namespace CarSellerShop.Form_Render
 {
-    public partial class frm_AddCar : Form
+    public partial class frm_Car : Form
     {
         private string identifier;
         private bool update = false;
@@ -20,13 +20,13 @@ namespace CarSellerShop.Form_Render
         private DataTable result;
         private Data_IO data;
 
-        public frm_AddCar()
+        public frm_Car()
         {
             InitializeComponent();
             cmb_Type.SelectedIndex = 2;
             cmb_Status.SelectedIndex = 0;
         }
-        public frm_AddCar(string identifier, bool update = false)
+        public frm_Car(string identifier, bool update = false)
         {
             InitializeComponent();
             this.update = update;

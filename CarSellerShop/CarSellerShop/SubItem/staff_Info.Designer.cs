@@ -260,7 +260,7 @@ namespace CarSellerShop.SubItem
             // 
             // panel2
             // 
-            this.panel2.Location = new System.Drawing.Point(10, 108);
+            this.panel2.Location = new System.Drawing.Point(10, 113);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(430, 2);
             this.panel2.TabIndex = 7;
@@ -277,7 +277,7 @@ namespace CarSellerShop.SubItem
             this.pic_profile.Location = new System.Drawing.Point(181, 2);
             this.pic_profile.Name = "pic_profile";
             this.pic_profile.Size = new System.Drawing.Size(100, 100);
-            this.pic_profile.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pic_profile.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pic_profile.TabIndex = 6;
             this.pic_profile.TabStop = false;
             // 

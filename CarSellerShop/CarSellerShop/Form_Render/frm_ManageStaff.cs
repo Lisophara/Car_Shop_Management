@@ -8,7 +8,7 @@ using CarSellerShop.Custom;
 
 namespace CarSellerShop.Form_Render
 {
-    public partial class frm_ManageStuff : Form
+    public partial class frm_ManageStaff : Form
     {
         #region -> Variable
 
@@ -28,7 +28,7 @@ namespace CarSellerShop.Form_Render
 
         #endregion
 
-        public frm_ManageStuff()
+        public frm_ManageStaff()
         {
             InitializeComponent();
             Load();
@@ -91,7 +91,7 @@ namespace CarSellerShop.Form_Render
                     info.btn_Edit.Click += (sender, e) =>
                     {
                         this.Visible = false;
-                        new frm_AddStaff((string)(((ShadowRoundButton)sender).Parent).Tag, true).ShowDialog();
+                        new frm_Staff((string)(((ShadowRoundButton)sender).Parent).Tag, true).ShowDialog();
                         this.Dispose();
                     };
                     tb_StuffInfo.Controls.Add(info, col, row);
@@ -179,7 +179,7 @@ namespace CarSellerShop.Form_Render
         private void btn_AddStuff_Click(object sender, EventArgs e)
         {
             this.Visible = false;
-            new frm_AddStaff().ShowDialog();
+            new frm_Staff().ShowDialog();
         }
 
         private void lb_Management_staff_Click(object sender, EventArgs e)
@@ -191,7 +191,7 @@ namespace CarSellerShop.Form_Render
         private void pic_back_Click(object sender, EventArgs e)
         {
             this.Dispose();
-            new frm_SellProduce().Visible = true;
+            new frm_Product().Visible = true;
         }
 
         #endregion
