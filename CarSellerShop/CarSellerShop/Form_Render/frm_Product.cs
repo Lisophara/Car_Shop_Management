@@ -6,10 +6,11 @@ using CarSellerShop.Data;
 using System.Data;
 using System.Collections.Generic;
 using CustomControls;
+using System.Diagnostics;
 
 namespace CarSellerShop.Form_Render
 {
-    public partial class frm_SellProduce : Form
+    public partial class frm_Product : Form
     {
 
         #region -> Variable
@@ -24,14 +25,14 @@ namespace CarSellerShop.Form_Render
         private List<string> orderList = new List<string>();
         private bool isHide = true;
         private int slideSize = 15;
-        private int orderCount = -1;
-
+        private int orderCount = 1;
+        decimal price = 0;
         // Milisecond
         private int speed = 10;
 
         #endregion
 
-        public frm_SellProduce()
+        public frm_Product()
         {
             InitializeComponent();
             this.Tag = "1";
@@ -49,7 +50,6 @@ namespace CarSellerShop.Form_Render
         private void Timer_Tick(object sender, EventArgs e)
         {
             // <----- For show ----->
-
             if (panel_StuffInfo.Width <= 300 && panel_StuffInfo.Width >= 60 && isHide == true)
             {
                 panel_StuffInfo.Width += slideSize;
@@ -157,8 +157,6 @@ namespace CarSellerShop.Form_Render
             timer.Enabled = true;
         }
 
-        
-
         private void btn_Histories_MouseUp(object sender, MouseEventArgs e)
         {
 
@@ -175,7 +173,7 @@ namespace CarSellerShop.Form_Render
         {
             //this.Dispose();
             this.Visible = false;
-            new frm_ManageStuff().ShowDialog();
+            new frm_ManageStaff().ShowDialog();
         }
 
         private void btn_AddNewCar_MouseUp(object sender, MouseEventArgs e)
@@ -197,6 +195,20 @@ namespace CarSellerShop.Form_Render
                 search = $"AND LOWER(`model_name`) LIKE '{txt_Search.TextValue.Trim().ToLower()}%'";
             }
             Load($"WHERE `is_sold` IS NOT TRUE {search}");
+        }
+
+        private void panel_Charge_Click(object sender, EventArgs e)
+        {
+            if(orderList.Count <= 0)
+            {
+                MessageBox.Show("Please select items first!", "No items selected", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                return;
+            }
+            //this.Dispose();
+            var frm = new frm_Sell();
+            frm.Tag = orderList;
+            frm.ShowDialog();
+
         }
         #endregion
 
@@ -250,31 +262,54 @@ namespace CarSellerShop.Form_Render
                         rowStyle.Height = 221;
                     }
                     setRowStyle.Add(rowStyle);
-                    orderList.Add(result.Rows[i - 1][0].ToString());
+                    
                     carInfo = new car_Info();
                     carInfo.Tag = result.Rows[i - 1];
                     carInfo.MouseClick += (sender, e) =>
                     {
+                        price = 0;
                         string identifier = ((DataRow)((car_Info)sender).Tag)[0].ToString();
+                        if (orderList.Contains(identifier)) return;
                         if (e.Button != MouseButtons.Right) return;
-                        orderCount++;
-                        order = new order_Info($"{orderCount + 1},{((DataRow)((car_Info)sender).Tag)[1]}");
-                        order.identify = identifier;
+                        orderList.Add(identifier);
+                        order = new order_Info($"{orderCount++},{((DataRow)((car_Info)sender).Tag)[1]}");
+                        order.Tag = identifier;
                         order.btn_Delete.MouseUp += (senderOrder, eOrder) =>
                         {
-                            orderList.Remove(order.identify);
-                            if(panel_OrderItemList.Controls.Count > 1)
+                            price = 0;
+                            string currentIdentifier = (string)((IconButton)senderOrder).Parent.Tag;
+                            orderList.Remove(currentIdentifier);
+                            foreach (var item in orderList)
                             {
-                                panel_OrderItemList.Height -= 50;
+                                price = Decimal.Add(price, getPrice(item));
+                                lb_Charge.Text = "$" + price.ToString();
+                                lb_SubTotal.Text = lb_Charge.Text;
+                            }
+                            lb_Charge.Text = "$" + price.ToString();
+                            if (panel_OrderLists.Controls.Count > 1)
+                            {
+                                panel_OrderLists.Height -= 50;
                             }
                             ((IconButton)senderOrder).Parent.Dispose();
+                            foreach (var item in orderList)
+                            {
+                                Debug.WriteLine(item);
+                            }
                         };
                         order.Dock = DockStyle.Bottom;
-                        panel_OrderItemList.Controls.Add(order);
-                        if(panel_OrderItemList.Controls.Count > 1)
+                        panel_OrderLists.Controls.Add(order);
+                        if(panel_OrderLists.Controls.Count > 1)
                         {
-                            panel_OrderItemList.Height += 50;
+                            panel_OrderLists.Height += 50;
                         }
+                        
+                        foreach (var item in orderList)
+                        {
+                            price = Decimal.Add(price, getPrice(item));
+                            lb_Charge.Text = "$" + price.ToString();
+                            lb_SubTotal.Text = lb_Charge.Text;
+                        }
+
                     };
                     tb_Car.Controls.Add(carInfo, col, row);
                     if (i % 3 == 0)
@@ -321,6 +356,13 @@ namespace CarSellerShop.Form_Render
             lb_Role.Text = staff_info.Rows[0][2].ToString();
         }
 
+        private decimal getPrice(string identify)
+        {
+            decimal price;
+            string result = data.Read_Data("`price`", "`car`", conditionStatement: $"WHERE `identifier` = '{identify}'").Rows[0][0].ToString();
+            Decimal.TryParse(result, out price);
+            return price;
+        }
         #endregion
     }
 }

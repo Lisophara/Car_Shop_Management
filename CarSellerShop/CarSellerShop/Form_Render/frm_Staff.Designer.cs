@@ -1,7 +1,7 @@
 ﻿
 namespace CarSellerShop.Form_Render
 {
-    partial class frm_AddStaff
+    partial class frm_Staff
     {
         /// <summary>
         /// Required designer variable.
@@ -29,7 +29,7 @@ namespace CarSellerShop.Form_Render
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frm_AddStaff));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frm_Staff));
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -44,8 +44,10 @@ namespace CarSellerShop.Form_Render
             this.label11 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
+            this.pic_Image = new System.Windows.Forms.PictureBox();
             this.txt_NationalID = new CarSellerShop.RJControls.RJTextBox();
             this.txt_Phone = new CarSellerShop.RJControls.RJTextBox();
+            this.dp_Dob = new CarSellerShop.CustomDatePicker();
             this.txt_LastName = new CarSellerShop.RJControls.RJTextBox();
             this.txt_Address = new CarSellerShop.RJControls.RJTextBox();
             this.txt_FirstName = new CarSellerShop.RJControls.RJTextBox();
@@ -54,14 +56,12 @@ namespace CarSellerShop.Form_Render
             this.btn_Action = new CarSellerShop.Custom.RoundButton();
             this.label1 = new System.Windows.Forms.Label();
             this.pic_back = new System.Windows.Forms.PictureBox();
-            this.pic_Image = new System.Windows.Forms.PictureBox();
-            this.dp_Dob = new CarSellerShop.CustomDatePicker();
             this.panel_BrowseImage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pic_BrowseImage)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pic_Image)).BeginInit();
             this.panel_HeadWrapper.SuspendLayout();
             this.panel_Head.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pic_back)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pic_Image)).BeginInit();
             this.SuspendLayout();
             // 
             // label3
@@ -222,6 +222,17 @@ namespace CarSellerShop.Form_Render
             this.label6.TabIndex = 9;
             this.label6.Text = "Developed by RUPP Group 3 Year 3";
             // 
+            // pic_Image
+            // 
+            this.pic_Image.BackColor = System.Drawing.Color.Transparent;
+            this.pic_Image.Location = new System.Drawing.Point(385, 360);
+            this.pic_Image.Name = "pic_Image";
+            this.pic_Image.Size = new System.Drawing.Size(292, 191);
+            this.pic_Image.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pic_Image.TabIndex = 6;
+            this.pic_Image.TabStop = false;
+            this.pic_Image.Click += new System.EventHandler(this.pic_Image_Click);
+            // 
             // txt_NationalID
             // 
             this.txt_NationalID.BackColor = System.Drawing.SystemColors.Window;
@@ -271,6 +282,23 @@ namespace CarSellerShop.Form_Render
             this.txt_Phone.Texts = "";
             this.txt_Phone.TextValue = "";
             this.txt_Phone.UnderlinedStyle = false;
+            // 
+            // dp_Dob
+            // 
+            this.dp_Dob.Angle = 125F;
+            this.dp_Dob.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.dp_Dob.BorderSize = 0;
+            this.dp_Dob.CalendarIcon = ((System.Drawing.Image)(resources.GetObject("dp_Dob.CalendarIcon")));
+            this.dp_Dob.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F);
+            this.dp_Dob.Location = new System.Drawing.Point(385, 204);
+            this.dp_Dob.MinimumSize = new System.Drawing.Size(215, 35);
+            this.dp_Dob.Name = "dp_Dob";
+            this.dp_Dob.Size = new System.Drawing.Size(291, 35);
+            this.dp_Dob.SkinColor1 = System.Drawing.Color.FromArgb(((int)(((byte)(166)))), ((int)(((byte)(193)))), ((int)(((byte)(238)))));
+            this.dp_Dob.SkinColor2 = System.Drawing.Color.MediumSlateBlue;
+            this.dp_Dob.TabIndex = 3;
+            this.dp_Dob.TextColor = System.Drawing.Color.White;
+            this.dp_Dob.Value = new System.DateTime(2000, 1, 1, 0, 0, 0, 0);
             // 
             // txt_LastName
             // 
@@ -430,34 +458,6 @@ namespace CarSellerShop.Form_Render
             this.pic_back.TabStop = false;
             this.pic_back.Click += new System.EventHandler(this.pic_back_Click);
             // 
-            // pic_Image
-            // 
-            this.pic_Image.BackColor = System.Drawing.Color.Transparent;
-            this.pic_Image.Location = new System.Drawing.Point(385, 360);
-            this.pic_Image.Name = "pic_Image";
-            this.pic_Image.Size = new System.Drawing.Size(292, 191);
-            this.pic_Image.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pic_Image.TabIndex = 6;
-            this.pic_Image.TabStop = false;
-            this.pic_Image.Click += new System.EventHandler(this.pic_Image_Click);
-            // 
-            // dp_Dob
-            // 
-            this.dp_Dob.Angle = 125F;
-            this.dp_Dob.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.dp_Dob.BorderSize = 0;
-            this.dp_Dob.CalendarIcon = ((System.Drawing.Image)(resources.GetObject("dp_Dob.CalendarIcon")));
-            this.dp_Dob.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F);
-            this.dp_Dob.Location = new System.Drawing.Point(385, 204);
-            this.dp_Dob.MinimumSize = new System.Drawing.Size(215, 35);
-            this.dp_Dob.Name = "dp_Dob";
-            this.dp_Dob.Size = new System.Drawing.Size(291, 35);
-            this.dp_Dob.SkinColor1 = System.Drawing.Color.FromArgb(((int)(((byte)(166)))), ((int)(((byte)(193)))), ((int)(((byte)(238)))));
-            this.dp_Dob.SkinColor2 = System.Drawing.Color.MediumSlateBlue;
-            this.dp_Dob.TabIndex = 3;
-            this.dp_Dob.TextColor = System.Drawing.Color.White;
-            this.dp_Dob.Value = new System.DateTime(2000, 1, 1, 0, 0, 0, 0);
-            // 
             // frm_AddStaff
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -491,11 +491,11 @@ namespace CarSellerShop.Form_Render
             this.panel_BrowseImage.ResumeLayout(false);
             this.panel_BrowseImage.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pic_BrowseImage)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pic_Image)).EndInit();
             this.panel_HeadWrapper.ResumeLayout(false);
             this.panel_Head.ResumeLayout(false);
             this.panel_Head.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pic_back)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pic_Image)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

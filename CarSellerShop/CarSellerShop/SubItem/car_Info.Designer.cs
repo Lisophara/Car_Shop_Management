@@ -236,7 +236,7 @@ namespace CarSellerShop.SubItem
         private System.Windows.Forms.Label lb_Status;
         private System.Windows.Forms.Label lb_Year;
         private System.Windows.Forms.Label lb_Color;
-        private System.Windows.Forms.Label lb_price;
+        public System.Windows.Forms.Label lb_price;
         private System.Windows.Forms.Label lb_Identifier;
         private System.Windows.Forms.Label identifier;
         private System.Windows.Forms.Label price;

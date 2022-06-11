@@ -55,11 +55,11 @@ namespace CarSellerShop.Custom
             rec = new Rectangle(0, 0, Width, Height);
             g.FillRectangle(new SolidBrush( frm != null ? frm.BackColor : Color.White), rec);
             
-            Point[] p = {new Point(Width - shadowSize + btnPosition, btnPosition), new Point(Width - shadowSize, shadowSize), new Point(Width, shadowSize)};
-            g.FillPolygon(new SolidBrush(shadowColor), p);
+            //Point[] p = {new Point(Width - shadowSize + btnPosition, btnPosition), new Point(Width - shadowSize, shadowSize), new Point(Width, shadowSize)};
+            //g.FillPolygon(new SolidBrush(shadowColor), p);
 
-            Point[] p1 = { new Point(btnPosition, (Height - shadowSize) + btnPosition ), new Point(shadowSize, Height - shadowSize), new Point(shadowSize, Height)};
-            g.FillPolygon(new SolidBrush(shadowColor), p1);
+            //Point[] p1 = { new Point(btnPosition, (Height - shadowSize) + btnPosition ), new Point(shadowSize, Height - shadowSize), new Point(shadowSize, Height)};
+            //g.FillPolygon(new SolidBrush(shadowColor), p1);
 
             // Shadow
             rec = new Rectangle(shadowSize, shadowSize, Width, Height);
