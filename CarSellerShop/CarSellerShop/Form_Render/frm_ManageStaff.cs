@@ -44,7 +44,7 @@ namespace CarSellerShop.Form_Render
             result = data.Read_Data(col: query_col,
                 table: query_table,
                 joinStatement: query_join,
-                conditionStatement: "WHERE `is_deleted` IS NOT TRUE AND st.stuff_state_id <> 1",
+                conditionStatement: "WHERE `is_deleted` IS NOT TRUE",
                 sort:"ORDER BY `stuff_id` ASC");
             LoadData();
         }
@@ -71,6 +71,10 @@ namespace CarSellerShop.Form_Render
 
                 for (int i = 0; i < result.Rows.Count; i++)
                 {
+                    if(Properties.Settings.Default.staff_id != "1" && i == 0)
+                    {
+                        continue;
+                    }
                     info = new staff_Info();
                     info.Tag = result.Rows[i];
                     info.btn_Delete.Click += (sender, e) =>

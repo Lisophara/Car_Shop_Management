@@ -22,9 +22,6 @@ namespace CarSellerShop.Form_Render
         public frm_Staff()
         {
             InitializeComponent();
-
-            //result = data.Read_Data(col: "`dob`", table: "`stuff_info`", conditionStatement: "WHERE stuff_id = 1");
-
         }
 
         public frm_Staff(string id, bool update = false)
@@ -64,6 +61,7 @@ namespace CarSellerShop.Form_Render
             {
                 panel_BrowseImage.Visible = false;
                 pic_Image.ImageLocation = result.Rows[0][8].ToString();
+                image = result.Rows[0][8].ToString();
             }
 
         }
@@ -155,7 +153,6 @@ namespace CarSellerShop.Form_Render
                         MessageBox.Show("Some information are missing or Incorrect format!", "Something gone wrong!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     }
                 }
-                
             }
             else
             {
@@ -163,8 +160,6 @@ namespace CarSellerShop.Form_Render
                 {
                     string image_path = data.SaveImage(image);
                     bool update_success = false;
-                    //stuff_id, national_id, stuff_first_name, stuff_last_name, stuff_gender, dob, stuff_phone_num, stuff_addr, stuff_image_path, stuff_state_id, is_deleted
-
                     update_success = data.Update_Data(table: "stuff_info",
                                 col_Value:
                                 $"`national_id` = '{txt_NationalID.TextValue}', " +
@@ -175,8 +170,8 @@ namespace CarSellerShop.Form_Render
                                 $"`stuff_phone_num` = '{txt_Phone.TextValue}', " +
                                 $"`stuff_addr` = '{txt_Address.TextValue}', " +
                                 $"`stuff_image_path` = '{image_path}', " +
-                                $"`stuff_state_id` = {role}, ",
-                                condition: $"WHERE stuff_id = {id}");
+                                $"`stuff_state_id` = {role}",
+                                condition: $"`stuff_id` = {id}");
                     if (update_success)
                     {
                         MessageBox.Show("Update!", "Update Success!", MessageBoxButtons.OK, MessageBoxIcon.Information);

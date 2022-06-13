@@ -14,12 +14,7 @@ namespace CarSellerShop.Form_Render
 
         private void frm_ForgotPassword_FormClosed(object sender, FormClosedEventArgs e)
         {
-            new frm_Login().Visible = true;
-        }
-
-        private void pic_Close_Click(object sender, EventArgs e)
-        {
-            Application.Exit();
+            //new frm_Login().Visible = true;
         }
 
         private void pic_Minimize_Click(object sender, EventArgs e)
@@ -36,12 +31,16 @@ namespace CarSellerShop.Form_Render
             }
             DataTable result = data.Read_Data("acc.password", "`account` acc",
                  joinStatement: "JOIN `stuff_info` st ON acc.stuff_id = st.stuff_id",
-                 conditionStatement: $"WHERE acc.user_name = '{txt_Username.TextValue}' AND acc.forget_tip = '{txt_ForgotTip.TextValue}' AND st.national_id = '{txt_NationalID.TextValue}' AND `is_deleted` IS NOT TRUE;"
+                 conditionStatement: $"WHERE acc.user_name = '{txt_Username.TextValue.Trim()}' AND acc.forget_tip = '{txt_ForgotTip.TextValue.Trim()}' AND st.national_id = '{txt_NationalID.TextValue.Trim()}' AND `is_deleted` IS NOT TRUE;"
                  );
 
             if(result.Rows.Count > 0)
             {
                 MessageBox.Show("Your password is: " + result.Rows[0][0].ToString(),"Remain Password",MessageBoxButtons.OK,MessageBoxIcon.Information);
+            }
+            else
+            {
+                MessageBox.Show("Account not found!", "Not found", MessageBoxButtons.OK);
             }
         }
 
@@ -69,6 +68,11 @@ namespace CarSellerShop.Form_Render
         private void btn_GetPassword_MouseLeave(object sender, EventArgs e)
         {
             btn_GetPassword.ColorAngle = 45;
+        }
+
+        private void pic_Close_MouseUp(object sender, MouseEventArgs e)
+        {
+            this.Dispose();
         }
     }
 }

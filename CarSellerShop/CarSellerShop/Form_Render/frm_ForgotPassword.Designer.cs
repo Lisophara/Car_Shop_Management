@@ -147,6 +147,7 @@ namespace CarSellerShop.Form_Render
             this.txt_NationalID.Margin = new System.Windows.Forms.Padding(4);
             this.txt_NationalID.Multiline = false;
             this.txt_NationalID.Name = "txt_NationalID";
+            this.txt_NationalID.OnlyNumeric = false;
             this.txt_NationalID.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
             this.txt_NationalID.PasswordChar = false;
             this.txt_NationalID.PlaceholderColor = System.Drawing.Color.DarkGray;
@@ -172,6 +173,7 @@ namespace CarSellerShop.Form_Render
             this.txt_ForgotTip.Margin = new System.Windows.Forms.Padding(4);
             this.txt_ForgotTip.Multiline = false;
             this.txt_ForgotTip.Name = "txt_ForgotTip";
+            this.txt_ForgotTip.OnlyNumeric = false;
             this.txt_ForgotTip.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
             this.txt_ForgotTip.PasswordChar = false;
             this.txt_ForgotTip.PlaceholderColor = System.Drawing.Color.DarkGray;
@@ -197,6 +199,7 @@ namespace CarSellerShop.Form_Render
             this.txt_Username.Margin = new System.Windows.Forms.Padding(4);
             this.txt_Username.Multiline = false;
             this.txt_Username.Name = "txt_Username";
+            this.txt_Username.OnlyNumeric = false;
             this.txt_Username.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
             this.txt_Username.PasswordChar = false;
             this.txt_Username.PlaceholderColor = System.Drawing.Color.DarkGray;
@@ -274,7 +277,7 @@ namespace CarSellerShop.Form_Render
             this.pic_Close.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pic_Close.TabIndex = 2;
             this.pic_Close.TabStop = false;
-            this.pic_Close.Click += new System.EventHandler(this.pic_Close_Click);
+            this.pic_Close.MouseUp += new System.Windows.Forms.MouseEventHandler(this.pic_Close_MouseUp);
             // 
             // lb_BackToLogin
             // 

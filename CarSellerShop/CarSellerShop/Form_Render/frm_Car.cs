@@ -16,7 +16,6 @@ namespace CarSellerShop.Form_Render
         private string identifier;
         private bool update = false;
         private string image = "";
-        private string imageDes = "Image/Car";
         private DataTable result;
         private Data_IO data;
 
@@ -87,12 +86,13 @@ namespace CarSellerShop.Form_Render
 
         private void btn_Action_Click(object sender, EventArgs e)
         {
+            data = new Data_IO();
             //`identifier`, `model_name`, `color`, `create_year`, `image`, `car_status`, `car_type`, `price`
             if (!update)
             {
                 if(MessageBox.Show("Do you want to update this record?", "Update Record", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
-                    string image_path = data.SaveImage(image, imageDes);
+                    string image_path = data.SaveImage(image);
                     bool save_success = false;
                     save_success = data.Write_Data(table: "car",
                                     dataToInsert: $"'{txt_Identifier.TextValue}'," +
@@ -102,7 +102,8 @@ namespace CarSellerShop.Form_Render
                                     $"'{image_path}'," +
                                     $"{cmb_Status.SelectedIndex + 1}," +
                                     $"{cmb_Type.SelectedIndex + 1}," +
-                                    $"{txt_Price.TextValue}");
+                                    $"{txt_Price.TextValue}"+
+                                    $"FALSE");
                     if (save_success)
                     {
                         MessageBox.Show("Save!", "Save Success!", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -126,7 +127,7 @@ namespace CarSellerShop.Form_Render
             {
                 if(MessageBox.Show("Do you want to update this record?", "Update Record", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
-                    string image_path = data.SaveImage(image, imageDes);
+                    string image_path = data.SaveImage(image);
                     bool update_success = false;
                     update_success = data.Update_Data(table: "car",
                                      //identifier, model_name, color, create_year, image, car_status, car_type, price, is_sold
@@ -182,5 +183,10 @@ namespace CarSellerShop.Form_Render
 
         #endregion
 
+        private void pic_back_Click(object sender, EventArgs e)
+        {
+            this.Dispose();
+            new frm_Product().ShowDialog();
+        }
     }
 }

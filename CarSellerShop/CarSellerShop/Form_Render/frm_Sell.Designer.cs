@@ -32,6 +32,9 @@ namespace CarSellerShop.Form_Render
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frm_Sell));
             this.panel_OrderLists = new System.Windows.Forms.Panel();
             this.panel_SellWrapper = new System.Windows.Forms.Panel();
+            this.lb_Payment = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.btn_Sell = new CarSellerShop.Custom.ShadowRoundButton();
             this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
@@ -43,27 +46,23 @@ namespace CarSellerShop.Form_Render
             this.panel_BrowseImage = new System.Windows.Forms.Panel();
             this.lb_BrowseImage = new System.Windows.Forms.Label();
             this.pic_BrowseImage = new System.Windows.Forms.PictureBox();
-            this.pic_Image = new System.Windows.Forms.PictureBox();
             this.cmb_Gender = new CustomControls.RJControls.RJComboBox();
-            this.dp_Dob = new CarSellerShop.CustomDatePicker();
             this.txt_Address = new CarSellerShop.RJControls.RJTextBox();
             this.txt_Phone1 = new CarSellerShop.RJControls.RJTextBox();
             this.txt_Phone = new CarSellerShop.RJControls.RJTextBox();
             this.txt_NationalID = new CarSellerShop.RJControls.RJTextBox();
             this.txt_Lname = new CarSellerShop.RJControls.RJTextBox();
             this.txt_Fname = new CarSellerShop.RJControls.RJTextBox();
-            this.btn_Sell = new CarSellerShop.Custom.ShadowRoundButton();
             this.panel_header = new CarSellerShop.Custom.CustomPanel();
-            this.btn_Minimize = new CustomControls.IconButton();
-            this.btn_Close = new CustomControls.IconButton();
             this.label2 = new System.Windows.Forms.Label();
-            this.lb_Payment = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
+            this.pic_Image = new System.Windows.Forms.PictureBox();
+            this.dp_Dob = new CarSellerShop.CustomDatePicker();
+            this.btn_Close = new CarSellerShop.Custom.RoundButton();
             this.panel_SellWrapper.SuspendLayout();
             this.panel_BrowseImage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pic_BrowseImage)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pic_Image)).BeginInit();
             this.panel_header.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pic_Image)).BeginInit();
             this.SuspendLayout();
             // 
             // panel_OrderLists
@@ -82,6 +81,46 @@ namespace CarSellerShop.Form_Render
             this.panel_SellWrapper.Name = "panel_SellWrapper";
             this.panel_SellWrapper.Size = new System.Drawing.Size(275, 97);
             this.panel_SellWrapper.TabIndex = 85;
+            // 
+            // lb_Payment
+            // 
+            this.lb_Payment.Font = new System.Drawing.Font("Mongolian Baiti", 14.25F);
+            this.lb_Payment.Location = new System.Drawing.Point(58, 18);
+            this.lb_Payment.Name = "lb_Payment";
+            this.lb_Payment.Size = new System.Drawing.Size(217, 20);
+            this.lb_Payment.TabIndex = 87;
+            this.lb_Payment.Text = "$0";
+            this.lb_Payment.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Mongolian Baiti", 14.25F);
+            this.label11.Location = new System.Drawing.Point(4, 18);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(48, 20);
+            this.label11.TabIndex = 88;
+            this.label11.Text = "Pay :";
+            // 
+            // btn_Sell
+            // 
+            this.btn_Sell._ButtonColor = System.Drawing.Color.MediumPurple;
+            this.btn_Sell._form = this;
+            this.btn_Sell._ShadowColor = System.Drawing.Color.LightGray;
+            this.btn_Sell._ShadowSize = 5;
+            this.btn_Sell._TextColor = System.Drawing.Color.White;
+            this.btn_Sell.BackColor = System.Drawing.Color.Black;
+            this.btn_Sell.FlatAppearance.BorderSize = 0;
+            this.btn_Sell.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_Sell.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Sell.ForeColor = System.Drawing.SystemColors.ButtonShadow;
+            this.btn_Sell.Location = new System.Drawing.Point(102, 52);
+            this.btn_Sell.Name = "btn_Sell";
+            this.btn_Sell.Size = new System.Drawing.Size(173, 45);
+            this.btn_Sell.TabIndex = 86;
+            this.btn_Sell.Text = "Sell";
+            this.btn_Sell.UseVisualStyleBackColor = false;
+            this.btn_Sell.Click += new System.EventHandler(this.btn_Sell_Click);
             // 
             // label9
             // 
@@ -213,17 +252,6 @@ namespace CarSellerShop.Form_Render
             this.pic_BrowseImage.TabStop = false;
             this.pic_BrowseImage.Click += new System.EventHandler(this.BrowsImage_Click);
             // 
-            // pic_Image
-            // 
-            this.pic_Image.BackColor = System.Drawing.Color.Transparent;
-            this.pic_Image.Location = new System.Drawing.Point(11, 535);
-            this.pic_Image.Name = "pic_Image";
-            this.pic_Image.Size = new System.Drawing.Size(226, 157);
-            this.pic_Image.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pic_Image.TabIndex = 102;
-            this.pic_Image.TabStop = false;
-            this.pic_Image.Click += new System.EventHandler(this.pic_Image_Click);
-            // 
             // cmb_Gender
             // 
             this.cmb_Gender.AutoCompleteCustomSource.AddRange(new string[] {
@@ -248,22 +276,6 @@ namespace CarSellerShop.Form_Render
             this.cmb_Gender.Size = new System.Drawing.Size(295, 30);
             this.cmb_Gender.TabIndex = 101;
             this.cmb_Gender.Texts = "";
-            // 
-            // dp_Dob
-            // 
-            this.dp_Dob.Angle = 45F;
-            this.dp_Dob.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.dp_Dob.BorderSize = 0;
-            this.dp_Dob.CalendarIcon = ((System.Drawing.Image)(resources.GetObject("dp_Dob.CalendarIcon")));
-            this.dp_Dob.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F);
-            this.dp_Dob.Location = new System.Drawing.Point(11, 437);
-            this.dp_Dob.MinimumSize = new System.Drawing.Size(215, 35);
-            this.dp_Dob.Name = "dp_Dob";
-            this.dp_Dob.Size = new System.Drawing.Size(295, 35);
-            this.dp_Dob.SkinColor1 = System.Drawing.Color.FromArgb(((int)(((byte)(166)))), ((int)(((byte)(193)))), ((int)(((byte)(238)))));
-            this.dp_Dob.SkinColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(251)))), ((int)(((byte)(194)))), ((int)(((byte)(235)))));
-            this.dp_Dob.TabIndex = 100;
-            this.dp_Dob.TextColor = System.Drawing.Color.White;
             // 
             // txt_Address
             // 
@@ -421,26 +433,6 @@ namespace CarSellerShop.Form_Render
             this.txt_Fname.TextValue = "";
             this.txt_Fname.UnderlinedStyle = false;
             // 
-            // btn_Sell
-            // 
-            this.btn_Sell._ButtonColor = System.Drawing.Color.MediumPurple;
-            this.btn_Sell._form = this;
-            this.btn_Sell._ShadowColor = System.Drawing.Color.LightGray;
-            this.btn_Sell._ShadowSize = 5;
-            this.btn_Sell._TextColor = System.Drawing.Color.White;
-            this.btn_Sell.BackColor = System.Drawing.Color.Black;
-            this.btn_Sell.FlatAppearance.BorderSize = 0;
-            this.btn_Sell.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_Sell.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_Sell.ForeColor = System.Drawing.SystemColors.ButtonShadow;
-            this.btn_Sell.Location = new System.Drawing.Point(102, 52);
-            this.btn_Sell.Name = "btn_Sell";
-            this.btn_Sell.Size = new System.Drawing.Size(173, 45);
-            this.btn_Sell.TabIndex = 86;
-            this.btn_Sell.Text = "Sell";
-            this.btn_Sell.UseVisualStyleBackColor = false;
-            this.btn_Sell.Click += new System.EventHandler(this.btn_Sell_Click);
-            // 
             // panel_header
             // 
             this.panel_header.BorderColor = System.Drawing.Color.Transparent;
@@ -449,7 +441,6 @@ namespace CarSellerShop.Form_Render
             this.panel_header.Color = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(68)))), ((int)(((byte)(98)))));
             this.panel_header.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(44)))), ((int)(((byte)(79)))));
             this.panel_header.ColorAngle = 45;
-            this.panel_header.Controls.Add(this.btn_Minimize);
             this.panel_header.Controls.Add(this.btn_Close);
             this.panel_header.Controls.Add(this.label2);
             this.panel_header.Dock = System.Windows.Forms.DockStyle.Top;
@@ -458,62 +449,6 @@ namespace CarSellerShop.Form_Render
             this.panel_header.Name = "panel_header";
             this.panel_header.Size = new System.Drawing.Size(634, 30);
             this.panel_header.TabIndex = 1;
-            // 
-            // btn_Minimize
-            // 
-            this.btn_Minimize.BackColor = System.Drawing.Color.Red;
-            this.btn_Minimize.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(166)))), ((int)(((byte)(193)))), ((int)(((byte)(238)))));
-            this.btn_Minimize.BorderRadius = 15;
-            this.btn_Minimize.BorderSize = 0;
-            this.btn_Minimize.ButtonImage = ((System.Drawing.Image)(resources.GetObject("btn_Minimize.ButtonImage")));
-            this.btn_Minimize.ClickColor = System.Drawing.Color.DeepPink;
-            this.btn_Minimize.Dock = System.Windows.Forms.DockStyle.Right;
-            this.btn_Minimize.EnableImage = true;
-            this.btn_Minimize.FlatAppearance.BorderSize = 0;
-            this.btn_Minimize.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_Minimize.ForeColor = System.Drawing.Color.White;
-            this.btn_Minimize.HoverColor = System.Drawing.SystemColors.ButtonFace;
-            this.btn_Minimize.ImageX = 0;
-            this.btn_Minimize.Location = new System.Drawing.Point(574, 0);
-            this.btn_Minimize.MarginFromImage = 0;
-            this.btn_Minimize.Name = "btn_Minimize";
-            this.btn_Minimize.OnClickEvent = false;
-            this.btn_Minimize.OnHoverEvent = false;
-            this.btn_Minimize.Size = new System.Drawing.Size(30, 30);
-            this.btn_Minimize.SizeOfImage = 30;
-            this.btn_Minimize.TabIndex = 4;
-            this.btn_Minimize.TextColor = System.Drawing.Color.White;
-            this.btn_Minimize.TextValueAlign = CarSellerShop.Data.TextAlignment.CENTER;
-            this.btn_Minimize.UseVisualStyleBackColor = false;
-            this.btn_Minimize.MouseUp += new System.Windows.Forms.MouseEventHandler(this.btn_Minimize_MouseUp);
-            // 
-            // btn_Close
-            // 
-            this.btn_Close.BackColor = System.Drawing.Color.Red;
-            this.btn_Close.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(166)))), ((int)(((byte)(193)))), ((int)(((byte)(238)))));
-            this.btn_Close.BorderRadius = 15;
-            this.btn_Close.BorderSize = 0;
-            this.btn_Close.ButtonImage = ((System.Drawing.Image)(resources.GetObject("btn_Close.ButtonImage")));
-            this.btn_Close.ClickColor = System.Drawing.Color.DeepPink;
-            this.btn_Close.Dock = System.Windows.Forms.DockStyle.Right;
-            this.btn_Close.EnableImage = true;
-            this.btn_Close.FlatAppearance.BorderSize = 0;
-            this.btn_Close.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_Close.ForeColor = System.Drawing.Color.White;
-            this.btn_Close.HoverColor = System.Drawing.SystemColors.ButtonFace;
-            this.btn_Close.ImageX = 0;
-            this.btn_Close.Location = new System.Drawing.Point(604, 0);
-            this.btn_Close.MarginFromImage = 0;
-            this.btn_Close.Name = "btn_Close";
-            this.btn_Close.OnClickEvent = false;
-            this.btn_Close.OnHoverEvent = false;
-            this.btn_Close.Size = new System.Drawing.Size(30, 30);
-            this.btn_Close.SizeOfImage = 30;
-            this.btn_Close.TabIndex = 4;
-            this.btn_Close.TextColor = System.Drawing.Color.White;
-            this.btn_Close.TextValueAlign = CarSellerShop.Data.TextAlignment.CENTER;
-            this.btn_Close.UseVisualStyleBackColor = false;
-            this.btn_Close.MouseUp += new System.Windows.Forms.MouseEventHandler(this.btn_Close_MouseUp);
             // 
             // label2
             // 
@@ -527,25 +462,57 @@ namespace CarSellerShop.Form_Render
             this.label2.TabIndex = 3;
             this.label2.Text = "Car Selling";
             // 
-            // lb_Payment
+            // pic_Image
             // 
-            this.lb_Payment.Font = new System.Drawing.Font("Mongolian Baiti", 14.25F);
-            this.lb_Payment.Location = new System.Drawing.Point(58, 18);
-            this.lb_Payment.Name = "lb_Payment";
-            this.lb_Payment.Size = new System.Drawing.Size(217, 20);
-            this.lb_Payment.TabIndex = 87;
-            this.lb_Payment.Text = "$0";
-            this.lb_Payment.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.pic_Image.BackColor = System.Drawing.Color.Transparent;
+            this.pic_Image.Location = new System.Drawing.Point(11, 535);
+            this.pic_Image.Name = "pic_Image";
+            this.pic_Image.Size = new System.Drawing.Size(226, 157);
+            this.pic_Image.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pic_Image.TabIndex = 102;
+            this.pic_Image.TabStop = false;
+            this.pic_Image.Click += new System.EventHandler(this.pic_Image_Click);
             // 
-            // label11
+            // dp_Dob
             // 
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Mongolian Baiti", 14.25F);
-            this.label11.Location = new System.Drawing.Point(4, 18);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(48, 20);
-            this.label11.TabIndex = 88;
-            this.label11.Text = "Pay :";
+            this.dp_Dob.Angle = 45F;
+            this.dp_Dob.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.dp_Dob.BorderSize = 0;
+            this.dp_Dob.CalendarIcon = ((System.Drawing.Image)(resources.GetObject("dp_Dob.CalendarIcon")));
+            this.dp_Dob.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F);
+            this.dp_Dob.Location = new System.Drawing.Point(11, 437);
+            this.dp_Dob.MinimumSize = new System.Drawing.Size(215, 35);
+            this.dp_Dob.Name = "dp_Dob";
+            this.dp_Dob.Size = new System.Drawing.Size(295, 35);
+            this.dp_Dob.SkinColor1 = System.Drawing.Color.FromArgb(((int)(((byte)(166)))), ((int)(((byte)(193)))), ((int)(((byte)(238)))));
+            this.dp_Dob.SkinColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(251)))), ((int)(((byte)(194)))), ((int)(((byte)(235)))));
+            this.dp_Dob.TabIndex = 100;
+            this.dp_Dob.TextColor = System.Drawing.Color.White;
+            // 
+            // btn_Close
+            // 
+            this.btn_Close._ActivateBorderHover = false;
+            this.btn_Close._ActivateInnerHover = false;
+            this.btn_Close._ActivateTextHover = false;
+            this.btn_Close._BorderColor = System.Drawing.Color.Red;
+            this.btn_Close._BorderSize = 3;
+            this.btn_Close._InnerButtonColor = System.Drawing.Color.Red;
+            this.btn_Close._OnHoverBorderColor = System.Drawing.Color.Green;
+            this.btn_Close._OnHoverInnerColor = System.Drawing.Color.Cyan;
+            this.btn_Close._OnHoverTextColor = System.Drawing.Color.Red;
+            this.btn_Close._TextColor = System.Drawing.Color.White;
+            this.btn_Close.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(44)))), ((int)(((byte)(79)))));
+            this.btn_Close.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btn_Close.FlatAppearance.BorderSize = 0;
+            this.btn_Close.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_Close.Font = new System.Drawing.Font("Microsoft PhagsPa", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Close.Location = new System.Drawing.Point(604, 0);
+            this.btn_Close.Name = "btn_Close";
+            this.btn_Close.Size = new System.Drawing.Size(30, 30);
+            this.btn_Close.TabIndex = 104;
+            this.btn_Close.Text = "X";
+            this.btn_Close.UseVisualStyleBackColor = false;
+            this.btn_Close.Click += new System.EventHandler(this.btn_Close_Click);
             // 
             // frm_Sell
             // 
@@ -582,9 +549,9 @@ namespace CarSellerShop.Form_Render
             this.panel_BrowseImage.ResumeLayout(false);
             this.panel_BrowseImage.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pic_BrowseImage)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pic_Image)).EndInit();
             this.panel_header.ResumeLayout(false);
             this.panel_header.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pic_Image)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -593,8 +560,8 @@ namespace CarSellerShop.Form_Render
         #endregion
 
         private Custom.CustomPanel panel_header;
-        private CustomControls.IconButton btn_Minimize;
-        private CustomControls.IconButton btn_Close;
+        //private CustomControls.IconButton btn_Minimize;
+        //private CustomControls.IconButton btn_Close;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Panel panel_OrderLists;
         private System.Windows.Forms.Panel panel_SellWrapper;
@@ -621,5 +588,6 @@ namespace CarSellerShop.Form_Render
         private System.Windows.Forms.PictureBox pic_Image;
         private System.Windows.Forms.Label lb_Payment;
         private System.Windows.Forms.Label label11;
+        private Custom.RoundButton btn_Close;
     }
 }

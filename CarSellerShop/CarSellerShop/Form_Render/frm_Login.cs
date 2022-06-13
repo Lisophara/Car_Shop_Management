@@ -12,13 +12,43 @@ namespace CarSellerShop.Form_Render
         public frm_Login()
         {
             InitializeComponent();
+            Data_IO data = new Data_IO();
+            if (data.Read_Data("*", "`account`", conditionStatement: "WHERE `id` = 1").Rows.Count <= 0)
+            {
+                data.Write_Data("stuff_state", "1, 'Admin'");
+                data.Write_Data("stuff_state", "2, 'Editor'");
+                data.Write_Data("stuff_state", "3, 'Cashier'");
+                data.Write_Data(table: "`stuff_info`",
+                            dataToInsert: $"1, " +
+                            $"'0000000000', " +
+                            $"'Super', " +
+                            $"'Admin', " +
+                            $"'M', " +
+                            $"DATE('2000-5-20'), " +
+                            $"'0962031234', " +
+                            $"'PP Kork tul sleng', " +
+                            $"'', " +
+                            $"1, " +
+                            $"DEFAULT");
+                data.Write_Data(table: "`account`",
+                dataToInsert: $"1," +
+                $"'admin@gmail.com'," +
+                $"'admin'," +
+                $"'admin'," +
+                $"1," +
+                $"DATE('{DateTime.Now.Year}-{DateTime.Now.Month}-{DateTime.Now.Day}')," +
+                $"FALSE");
+            }
+          
         }
 
         // Event to Close Application
-        private void pic_Close_Click(object sender, EventArgs e)
+
+        private void pic_Close_MouseUp(object sender, MouseEventArgs e)
         {
             Application.Exit();
         }
+
         // Minimize Application
         private void pic_Minimize_Click(object sender, EventArgs e)
         {
@@ -46,6 +76,9 @@ namespace CarSellerShop.Form_Render
                 MessageBox.Show("Invalid Username and Password!", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
+            Properties.Settings.Default.staff_id = result.Rows[0][0].ToString();
+            Properties.Settings.Default.Save();
+            
             this.Visible = false;
             Form frm_sell = new frm_Product();
             frm_sell.Tag = result.Rows[0][0].ToString();
@@ -58,7 +91,6 @@ namespace CarSellerShop.Form_Render
         {
             btn_Login.ColorAngle = -45;
         }
-
         private void btn_Login_MouseLeave(object sender, EventArgs e)
         {
             btn_Login.ColorAngle = 45;
@@ -67,7 +99,6 @@ namespace CarSellerShop.Form_Render
         // Label Event
         private void lb_ForgotPassword_Click(object sender, EventArgs e)
         {
-            this.Visible = false;
             new frm_ForgotPassword().ShowDialog();
         }
 
@@ -83,8 +114,18 @@ namespace CarSellerShop.Form_Render
 
         private void lb_Register_Click(object sender, EventArgs e)
         {
-            this.Hide();
             new frm_Register().ShowDialog();
+        }
+
+        private void frm_Login_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Properties.Settings.Default.staff_id = "";
+            Properties.Settings.Default.Save();
+        }
+
+        private void lb_ChangePassword_Click(object sender, EventArgs e)
+        {
+            new frm_ChangePassword().ShowDialog();
         }
     }
 }

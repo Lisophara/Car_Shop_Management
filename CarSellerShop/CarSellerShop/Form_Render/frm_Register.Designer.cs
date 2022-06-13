@@ -30,7 +30,6 @@ namespace CarSellerShop.Form_Render
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frm_Register));
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.txt_StaffID = new CarSellerShop.RJControls.RJTextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -45,25 +44,13 @@ namespace CarSellerShop.Form_Render
             this.txt_ForgetTip = new CarSellerShop.RJControls.RJTextBox();
             this.customPanel1 = new CarSellerShop.Custom.CustomPanel();
             this.label7 = new System.Windows.Forms.Label();
-            this.pic_Minimize = new CarSellerShop.RJControls.RJCircularPictureBox();
-            this.pic_Close = new CarSellerShop.RJControls.RJCircularPictureBox();
             this.btn_Register = new CustomControls.RJControls.CustomButton();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.pic_Close = new CarSellerShop.RJControls.RJCircularPictureBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.customPanel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pic_Minimize)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pic_Close)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(0, 576);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(400, 51);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 1;
-            this.pictureBox1.TabStop = false;
             // 
             // txt_StaffID
             // 
@@ -83,7 +70,7 @@ namespace CarSellerShop.Form_Render
             this.txt_StaffID.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
             this.txt_StaffID.PasswordChar = false;
             this.txt_StaffID.PlaceholderColor = System.Drawing.Color.DarkGray;
-            this.txt_StaffID.PlaceholderText = "Example@gmail.com";
+            this.txt_StaffID.PlaceholderText = "";
             this.txt_StaffID.Size = new System.Drawing.Size(371, 34);
             this.txt_StaffID.TabIndex = 0;
             this.txt_StaffID.TextAlignment = System.Windows.Forms.HorizontalAlignment.Center;
@@ -133,7 +120,7 @@ namespace CarSellerShop.Form_Render
             this.txt_NationalID.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
             this.txt_NationalID.PasswordChar = false;
             this.txt_NationalID.PlaceholderColor = System.Drawing.Color.DarkGray;
-            this.txt_NationalID.PlaceholderText = "Example@gmail.com";
+            this.txt_NationalID.PlaceholderText = "";
             this.txt_NationalID.Size = new System.Drawing.Size(371, 34);
             this.txt_NationalID.TabIndex = 1;
             this.txt_NationalID.TextAlignment = System.Windows.Forms.HorizontalAlignment.Center;
@@ -149,9 +136,9 @@ namespace CarSellerShop.Form_Render
             this.label3.ForeColor = System.Drawing.Color.White;
             this.label3.Location = new System.Drawing.Point(12, 205);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(103, 23);
+            this.label3.Size = new System.Drawing.Size(60, 23);
             this.label3.TabIndex = 5;
-            this.label3.Text = "User Name";
+            this.label3.Text = "Email";
             // 
             // txt_Username
             // 
@@ -207,9 +194,9 @@ namespace CarSellerShop.Form_Render
             this.txt_Password.Name = "txt_Password";
             this.txt_Password.OnlyNumeric = false;
             this.txt_Password.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
-            this.txt_Password.PasswordChar = false;
+            this.txt_Password.PasswordChar = true;
             this.txt_Password.PlaceholderColor = System.Drawing.Color.DarkGray;
-            this.txt_Password.PlaceholderText = "Example@gmail.com";
+            this.txt_Password.PlaceholderText = "";
             this.txt_Password.Size = new System.Drawing.Size(371, 34);
             this.txt_Password.TabIndex = 3;
             this.txt_Password.TextAlignment = System.Windows.Forms.HorizontalAlignment.Center;
@@ -247,7 +234,7 @@ namespace CarSellerShop.Form_Render
             this.txt_ConfirmPassword.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
             this.txt_ConfirmPassword.PasswordChar = false;
             this.txt_ConfirmPassword.PlaceholderColor = System.Drawing.Color.DarkGray;
-            this.txt_ConfirmPassword.PlaceholderText = "Example@gmail.com";
+            this.txt_ConfirmPassword.PlaceholderText = "";
             this.txt_ConfirmPassword.Size = new System.Drawing.Size(371, 34);
             this.txt_ConfirmPassword.TabIndex = 4;
             this.txt_ConfirmPassword.TextAlignment = System.Windows.Forms.HorizontalAlignment.Center;
@@ -302,11 +289,10 @@ namespace CarSellerShop.Form_Render
             this.customPanel1.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(44)))), ((int)(((byte)(79)))));
             this.customPanel1.ColorAngle = 45;
             this.customPanel1.Controls.Add(this.label7);
-            this.customPanel1.Controls.Add(this.pic_Minimize);
             this.customPanel1.Controls.Add(this.pic_Close);
             this.customPanel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.customPanel1.Location = new System.Drawing.Point(0, 0);
-            this.customPanel1.MoveForm = null;
+            this.customPanel1.MoveForm = this;
             this.customPanel1.Name = "customPanel1";
             this.customPanel1.Size = new System.Drawing.Size(400, 30);
             this.customPanel1.TabIndex = 6;
@@ -322,42 +308,6 @@ namespace CarSellerShop.Form_Render
             this.label7.Size = new System.Drawing.Size(72, 16);
             this.label7.TabIndex = 2;
             this.label7.Text = "Register";
-            // 
-            // pic_Minimize
-            // 
-            this.pic_Minimize.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(103)))), ((int)(((byte)(82)))), ((int)(((byte)(124)))));
-            this.pic_Minimize.BorderCapStyle = System.Drawing.Drawing2D.DashCap.Flat;
-            this.pic_Minimize.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(103)))), ((int)(((byte)(82)))), ((int)(((byte)(124)))));
-            this.pic_Minimize.BorderColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(103)))), ((int)(((byte)(82)))), ((int)(((byte)(124)))));
-            this.pic_Minimize.BorderLineStyle = System.Drawing.Drawing2D.DashStyle.Solid;
-            this.pic_Minimize.BorderSize = 3;
-            this.pic_Minimize.Dock = System.Windows.Forms.DockStyle.Right;
-            this.pic_Minimize.GradientAngle = 50F;
-            this.pic_Minimize.Image = ((System.Drawing.Image)(resources.GetObject("pic_Minimize.Image")));
-            this.pic_Minimize.Location = new System.Drawing.Point(340, 0);
-            this.pic_Minimize.Name = "pic_Minimize";
-            this.pic_Minimize.Size = new System.Drawing.Size(30, 30);
-            this.pic_Minimize.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pic_Minimize.TabIndex = 2;
-            this.pic_Minimize.TabStop = false;
-            // 
-            // pic_Close
-            // 
-            this.pic_Close.BackColor = System.Drawing.Color.Red;
-            this.pic_Close.BorderCapStyle = System.Drawing.Drawing2D.DashCap.Flat;
-            this.pic_Close.BorderColor = System.Drawing.Color.Red;
-            this.pic_Close.BorderColor2 = System.Drawing.Color.Red;
-            this.pic_Close.BorderLineStyle = System.Drawing.Drawing2D.DashStyle.Solid;
-            this.pic_Close.BorderSize = 3;
-            this.pic_Close.Dock = System.Windows.Forms.DockStyle.Right;
-            this.pic_Close.GradientAngle = 50F;
-            this.pic_Close.Image = ((System.Drawing.Image)(resources.GetObject("pic_Close.Image")));
-            this.pic_Close.Location = new System.Drawing.Point(370, 0);
-            this.pic_Close.Name = "pic_Close";
-            this.pic_Close.Size = new System.Drawing.Size(30, 30);
-            this.pic_Close.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pic_Close.TabIndex = 2;
-            this.pic_Close.TabStop = false;
             // 
             // btn_Register
             // 
@@ -380,6 +330,36 @@ namespace CarSellerShop.Form_Render
             this.btn_Register.TextColor = System.Drawing.Color.White;
             this.btn_Register.UseVisualStyleBackColor = false;
             this.btn_Register.Click += new System.EventHandler(this.btn_Register_Click);
+            // 
+            // pic_Close
+            // 
+            this.pic_Close.BackColor = System.Drawing.Color.Red;
+            this.pic_Close.BorderCapStyle = System.Drawing.Drawing2D.DashCap.Flat;
+            this.pic_Close.BorderColor = System.Drawing.Color.Red;
+            this.pic_Close.BorderColor2 = System.Drawing.Color.Red;
+            this.pic_Close.BorderLineStyle = System.Drawing.Drawing2D.DashStyle.Solid;
+            this.pic_Close.BorderSize = 3;
+            this.pic_Close.Dock = System.Windows.Forms.DockStyle.Right;
+            this.pic_Close.GradientAngle = 50F;
+            this.pic_Close.Image = ((System.Drawing.Image)(resources.GetObject("pic_Close.Image")));
+            this.pic_Close.Location = new System.Drawing.Point(370, 0);
+            this.pic_Close.Name = "pic_Close";
+            this.pic_Close.Size = new System.Drawing.Size(30, 30);
+            this.pic_Close.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pic_Close.TabIndex = 2;
+            this.pic_Close.TabStop = false;
+            this.pic_Close.MouseUp += new System.Windows.Forms.MouseEventHandler(this.pic_Close_MouseUp);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(0, 576);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(400, 51);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 1;
+            this.pictureBox1.TabStop = false;
             // 
             // frm_Register
             // 
@@ -404,12 +384,12 @@ namespace CarSellerShop.Form_Render
             this.Controls.Add(this.pictureBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frm_Register";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Register";
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.customPanel1.ResumeLayout(false);
             this.customPanel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pic_Minimize)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pic_Close)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -431,7 +411,6 @@ namespace CarSellerShop.Form_Render
         private RJControls.RJTextBox txt_ForgetTip;
         private Custom.CustomPanel customPanel1;
         private System.Windows.Forms.Label label7;
-        private RJControls.RJCircularPictureBox pic_Minimize;
         private RJControls.RJCircularPictureBox pic_Close;
         private CustomControls.RJControls.CustomButton btn_Register;
     }

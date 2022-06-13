@@ -134,6 +134,12 @@
     <Compile Include="Form_Render\frm_Car.Designer.cs">
       <DependentUpon>frm_Car.cs</DependentUpon>
     </Compile>
+    <Compile Include="Form_Render\frm_ChangePassword.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_Render\frm_ChangePassword.Designer.cs">
+      <DependentUpon>frm_ChangePassword.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form_Render\frm_Staff.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -201,6 +207,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Form_Render\frm_Car.resx">
       <DependentUpon>frm_Car.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_Render\frm_ChangePassword.resx">
+      <DependentUpon>frm_ChangePassword.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form_Render\frm_Staff.resx">
       <DependentUpon>frm_Staff.cs</DependentUpon>

@@ -35,7 +35,7 @@ namespace CarSellerShop.Form_Render
         public frm_Product()
         {
             InitializeComponent();
-            this.Tag = "1";
+            //this.Tag = "1";
             StaffInfo();
             AllowMethod(staff_info.Rows[0][2].ToString());
             pic_ToggleMenu.Image = image;
@@ -61,9 +61,9 @@ namespace CarSellerShop.Form_Render
 
                 if (panel_StuffInfo.Width >= 120)
                 {
-                    pic_stuff.Location = new Point(6, 6);
-                    pic_stuff.Width = 120;
-                    pic_stuff.Height = 120;
+                    pic_staff.Location = new Point(6, 6);
+                    pic_staff.Width = 120;
+                    pic_staff.Height = 120;
                     lb_FullName.Visible = true;
                     lb_Role.Visible = true;
                     btn_Histories.Text = "Histories";
@@ -98,9 +98,9 @@ namespace CarSellerShop.Form_Render
 
                 if (panel_StuffInfo.Width <= 120)
                 {
-                    pic_stuff.Location = new Point(0, 30);
-                    pic_stuff.Width = panel_StuffInfo.Width;
-                    pic_stuff.Height = panel_StuffInfo.Width;
+                    pic_staff.Location = new Point(0, 30);
+                    pic_staff.Width = panel_StuffInfo.Width;
+                    pic_staff.Height = panel_StuffInfo.Width;
                     btn_Histories.Text = "";
                     btn_Bills.Text = "";
                     btn_Logout.Text = "";
@@ -146,10 +146,12 @@ namespace CarSellerShop.Form_Render
             this.WindowState = FormWindowState.Minimized;
         }
 
-        private void btn_Logout_Click(object sender, EventArgs e)
+        private void btn_Logout_MouseUp(object sender, MouseEventArgs e)
         {
-            //this.Tag = null;
-            //new frm_Login().Visible = true;
+            Properties.Settings.Default.staff_id = "";
+            Properties.Settings.Default.Save();
+            this.Dispose();
+            new frm_Login().Visible = true;
         }
 
         private void pic_ToggleMenu_Click(object sender, EventArgs e)
@@ -159,26 +161,24 @@ namespace CarSellerShop.Form_Render
 
         private void btn_Histories_MouseUp(object sender, MouseEventArgs e)
         {
-
+            MessageBox.Show("This feature is under Maintain!", "Maintain feature", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private void btn_Bills_MouseUp(object sender, MouseEventArgs e)
         {
-            //this.Dispose();
-            this.Visible = false;
-            
+            MessageBox.Show("This feature is under Maintain!", "Maintain feature", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private void btn_Staff_MouseUp(object sender, MouseEventArgs e)
         {
-            //this.Dispose();
-            this.Visible = false;
+            this.Dispose();
             new frm_ManageStaff().ShowDialog();
         }
 
         private void btn_AddNewCar_MouseUp(object sender, MouseEventArgs e)
         {
-
+            this.Dispose();
+            new frm_Car().ShowDialog();
         }
 
         private void txt_Search__TextChanged(object sender, EventArgs e)
@@ -208,6 +208,9 @@ namespace CarSellerShop.Form_Render
             var frm = new frm_Sell();
             frm.Tag = orderList;
             frm.ShowDialog();
+            Load();
+            panel_OrderLists.Controls.Clear();
+            panel_OrderLists.Height = 50;
 
         }
         #endregion
@@ -344,15 +347,14 @@ namespace CarSellerShop.Form_Render
 
         private void StaffInfo()
         {
-            if(this.Tag != null || (string)this.Tag == "")
             staff_info = data.Read_Data(col: "CONCAT(st.stuff_first_name,' ', st.stuff_last_name), st.stuff_image_path, stt.stuff_state_name",
                 table: "`stuff_info` st",
                 joinStatement: "JOIN `stuff_state` stt ON st.stuff_state_id = stt.stuff_state_id",
-                conditionStatement: $"WHERE `stuff_id` = {(string)this.Tag}");
+                conditionStatement: $"WHERE `stuff_id` = {Properties.Settings.Default.staff_id}");
 
             // Show Staff data
             lb_FullName.Text = staff_info.Rows[0][0].ToString();
-            pic_stuff.ImageLocation = staff_info.Rows[0][1].ToString();
+            pic_staff.ImageLocation = staff_info.Rows[0][1].ToString();
             lb_Role.Text = staff_info.Rows[0][2].ToString();
         }
 
