@@ -32,6 +32,8 @@ namespace CarSellerShop.Form_Render
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frm_Product));
             this.tb_Car = new System.Windows.Forms.TableLayoutPanel();
             this.panel_head = new System.Windows.Forms.Panel();
+            this.iconButton1 = new CustomControls.IconButton();
+            this.txt_Search = new CarSellerShop.RJControls.RJTextBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel_orderList = new System.Windows.Forms.Panel();
             this.panel_OrderLists = new System.Windows.Forms.Panel();
@@ -64,9 +66,7 @@ namespace CarSellerShop.Form_Render
             this.panel_bar = new CarSellerShop.Custom.CustomPanel();
             this.lb_Role = new System.Windows.Forms.Label();
             this.lb_FullName = new System.Windows.Forms.Label();
-            this.pic_stuff = new CarSellerShop.RJControls.RJCircularPictureBox();
-            this.iconButton1 = new CustomControls.IconButton();
-            this.txt_Search = new CarSellerShop.RJControls.RJTextBox();
+            this.pic_staff = new CarSellerShop.RJControls.RJCircularPictureBox();
             this.panel_head.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel_orderList.SuspendLayout();
@@ -78,7 +78,7 @@ namespace CarSellerShop.Form_Render
             this.panel_function.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pic_ToggleMenu)).BeginInit();
             this.panel_info.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pic_stuff)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pic_staff)).BeginInit();
             this.SuspendLayout();
             // 
             // tb_Car
@@ -114,6 +114,58 @@ namespace CarSellerShop.Form_Render
             this.panel_head.Padding = new System.Windows.Forms.Padding(20);
             this.panel_head.Size = new System.Drawing.Size(866, 131);
             this.panel_head.TabIndex = 3;
+            // 
+            // iconButton1
+            // 
+            this.iconButton1.BackColor = System.Drawing.Color.White;
+            this.iconButton1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(166)))), ((int)(((byte)(193)))), ((int)(((byte)(238)))));
+            this.iconButton1.BorderRadius = 0;
+            this.iconButton1.BorderSize = 0;
+            this.iconButton1.ButtonImage = ((System.Drawing.Image)(resources.GetObject("iconButton1.ButtonImage")));
+            this.iconButton1.ClickColor = System.Drawing.Color.LightGray;
+            this.iconButton1.EnableImage = true;
+            this.iconButton1.FlatAppearance.BorderSize = 0;
+            this.iconButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.iconButton1.ForeColor = System.Drawing.Color.Wheat;
+            this.iconButton1.HoverColor = System.Drawing.Color.WhiteSmoke;
+            this.iconButton1.ImageX = 0;
+            this.iconButton1.Location = new System.Drawing.Point(641, 50);
+            this.iconButton1.MarginFromImage = 0;
+            this.iconButton1.Name = "iconButton1";
+            this.iconButton1.OnClickEvent = true;
+            this.iconButton1.OnHoverEvent = true;
+            this.iconButton1.Size = new System.Drawing.Size(30, 30);
+            this.iconButton1.SizeOfImage = 30;
+            this.iconButton1.TabIndex = 2;
+            this.iconButton1.TextColor = System.Drawing.Color.Wheat;
+            this.iconButton1.TextValueAlign = CarSellerShop.Data.TextAlignment.CENTER;
+            this.iconButton1.UseVisualStyleBackColor = false;
+            // 
+            // txt_Search
+            // 
+            this.txt_Search.BackColor = System.Drawing.SystemColors.Window;
+            this.txt_Search.BorderColor = System.Drawing.Color.MediumSlateBlue;
+            this.txt_Search.BorderFocusColor = System.Drawing.Color.HotPink;
+            this.txt_Search.BorderRadius = 15;
+            this.txt_Search.BorderSize = 2;
+            this.txt_Search.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
+            this.txt_Search.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.txt_Search.Location = new System.Drawing.Point(301, 44);
+            this.txt_Search.Margin = new System.Windows.Forms.Padding(4);
+            this.txt_Search.Multiline = false;
+            this.txt_Search.Name = "txt_Search";
+            this.txt_Search.OnlyNumeric = false;
+            this.txt_Search.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
+            this.txt_Search.PasswordChar = false;
+            this.txt_Search.PlaceholderColor = System.Drawing.Color.DarkGray;
+            this.txt_Search.PlaceholderText = "Identifier / Name";
+            this.txt_Search.Size = new System.Drawing.Size(333, 40);
+            this.txt_Search.TabIndex = 1;
+            this.txt_Search.TextAlignment = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txt_Search.Texts = "";
+            this.txt_Search.TextValue = "";
+            this.txt_Search.UnderlinedStyle = false;
+            this.txt_Search._TextChanged += new System.EventHandler(this.txt_Search__TextChanged);
             // 
             // pictureBox1
             // 
@@ -441,7 +493,7 @@ namespace CarSellerShop.Form_Render
             this.btn_Logout.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(50)))), ((int)(((byte)(35)))));
             this.btn_Logout.TextValueAlign = CarSellerShop.Data.TextAlignment.LEFT;
             this.btn_Logout.UseVisualStyleBackColor = false;
-            this.btn_Logout.Click += new System.EventHandler(this.btn_Logout_Click);
+            this.btn_Logout.MouseUp += new System.Windows.Forms.MouseEventHandler(this.btn_Logout_MouseUp);
             // 
             // btn_Histories
             // 
@@ -567,7 +619,7 @@ namespace CarSellerShop.Form_Render
             this.panel_info.Controls.Add(this.panel_bar);
             this.panel_info.Controls.Add(this.lb_Role);
             this.panel_info.Controls.Add(this.lb_FullName);
-            this.panel_info.Controls.Add(this.pic_stuff);
+            this.panel_info.Controls.Add(this.pic_staff);
             this.panel_info.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel_info.Location = new System.Drawing.Point(0, 0);
             this.panel_info.Name = "panel_info";
@@ -614,74 +666,22 @@ namespace CarSellerShop.Form_Render
             this.lb_FullName.Text = "Login Full Name";
             this.lb_FullName.Visible = false;
             // 
-            // pic_stuff
+            // pic_staff
             // 
-            this.pic_stuff.BackColor = System.Drawing.Color.Transparent;
-            this.pic_stuff.BorderCapStyle = System.Drawing.Drawing2D.DashCap.Flat;
-            this.pic_stuff.BorderColor = System.Drawing.Color.RoyalBlue;
-            this.pic_stuff.BorderColor2 = System.Drawing.Color.HotPink;
-            this.pic_stuff.BorderLineStyle = System.Drawing.Drawing2D.DashStyle.Dash;
-            this.pic_stuff.BorderSize = 3;
-            this.pic_stuff.GradientAngle = 50F;
-            this.pic_stuff.Image = ((System.Drawing.Image)(resources.GetObject("pic_stuff.Image")));
-            this.pic_stuff.Location = new System.Drawing.Point(0, 30);
-            this.pic_stuff.Name = "pic_stuff";
-            this.pic_stuff.Size = new System.Drawing.Size(60, 60);
-            this.pic_stuff.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pic_stuff.TabIndex = 7;
-            this.pic_stuff.TabStop = false;
-            // 
-            // iconButton1
-            // 
-            this.iconButton1.BackColor = System.Drawing.Color.White;
-            this.iconButton1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(166)))), ((int)(((byte)(193)))), ((int)(((byte)(238)))));
-            this.iconButton1.BorderRadius = 0;
-            this.iconButton1.BorderSize = 0;
-            this.iconButton1.ButtonImage = ((System.Drawing.Image)(resources.GetObject("iconButton1.ButtonImage")));
-            this.iconButton1.ClickColor = System.Drawing.Color.LightGray;
-            this.iconButton1.EnableImage = true;
-            this.iconButton1.FlatAppearance.BorderSize = 0;
-            this.iconButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconButton1.ForeColor = System.Drawing.Color.Wheat;
-            this.iconButton1.HoverColor = System.Drawing.Color.WhiteSmoke;
-            this.iconButton1.ImageX = 0;
-            this.iconButton1.Location = new System.Drawing.Point(641, 50);
-            this.iconButton1.MarginFromImage = 0;
-            this.iconButton1.Name = "iconButton1";
-            this.iconButton1.OnClickEvent = true;
-            this.iconButton1.OnHoverEvent = true;
-            this.iconButton1.Size = new System.Drawing.Size(30, 30);
-            this.iconButton1.SizeOfImage = 30;
-            this.iconButton1.TabIndex = 2;
-            this.iconButton1.TextColor = System.Drawing.Color.Wheat;
-            this.iconButton1.TextValueAlign = CarSellerShop.Data.TextAlignment.CENTER;
-            this.iconButton1.UseVisualStyleBackColor = false;
-            // 
-            // txt_Search
-            // 
-            this.txt_Search.BackColor = System.Drawing.SystemColors.Window;
-            this.txt_Search.BorderColor = System.Drawing.Color.MediumSlateBlue;
-            this.txt_Search.BorderFocusColor = System.Drawing.Color.HotPink;
-            this.txt_Search.BorderRadius = 15;
-            this.txt_Search.BorderSize = 2;
-            this.txt_Search.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
-            this.txt_Search.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.txt_Search.Location = new System.Drawing.Point(301, 44);
-            this.txt_Search.Margin = new System.Windows.Forms.Padding(4);
-            this.txt_Search.Multiline = false;
-            this.txt_Search.Name = "txt_Search";
-            this.txt_Search.OnlyNumeric = false;
-            this.txt_Search.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
-            this.txt_Search.PasswordChar = false;
-            this.txt_Search.PlaceholderColor = System.Drawing.Color.DarkGray;
-            this.txt_Search.PlaceholderText = "Identifier / Name";
-            this.txt_Search.Size = new System.Drawing.Size(333, 40);
-            this.txt_Search.TabIndex = 1;
-            this.txt_Search.TextAlignment = System.Windows.Forms.HorizontalAlignment.Center;
-            this.txt_Search.Texts = "";
-            this.txt_Search.TextValue = "";
-            this.txt_Search.UnderlinedStyle = false;
-            this.txt_Search._TextChanged += new System.EventHandler(this.txt_Search__TextChanged);
+            this.pic_staff.BackColor = System.Drawing.Color.Transparent;
+            this.pic_staff.BorderCapStyle = System.Drawing.Drawing2D.DashCap.Flat;
+            this.pic_staff.BorderColor = System.Drawing.Color.RoyalBlue;
+            this.pic_staff.BorderColor2 = System.Drawing.Color.HotPink;
+            this.pic_staff.BorderLineStyle = System.Drawing.Drawing2D.DashStyle.Dash;
+            this.pic_staff.BorderSize = 3;
+            this.pic_staff.GradientAngle = 50F;
+            this.pic_staff.Image = ((System.Drawing.Image)(resources.GetObject("pic_staff.Image")));
+            this.pic_staff.Location = new System.Drawing.Point(0, 30);
+            this.pic_staff.Name = "pic_staff";
+            this.pic_staff.Size = new System.Drawing.Size(60, 60);
+            this.pic_staff.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pic_staff.TabIndex = 7;
+            this.pic_staff.TabStop = false;
             // 
             // frm_Product
             // 
@@ -715,7 +715,7 @@ namespace CarSellerShop.Form_Render
             ((System.ComponentModel.ISupportInitialize)(this.pic_ToggleMenu)).EndInit();
             this.panel_info.ResumeLayout(false);
             this.panel_info.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pic_stuff)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pic_staff)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -729,7 +729,7 @@ namespace CarSellerShop.Form_Render
         private Custom.CustomPanel panel_bar;
         private System.Windows.Forms.Label lb_Role;
         private System.Windows.Forms.Label lb_FullName;
-        private RJControls.RJCircularPictureBox pic_stuff;
+        private RJControls.RJCircularPictureBox pic_staff;
         private System.Windows.Forms.Panel panel_function;
         private System.Windows.Forms.PictureBox pic_ToggleMenu;
         private CustomControls.IconButton btn_Logout;

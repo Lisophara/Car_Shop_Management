@@ -427,8 +427,9 @@ namespace CarSellerShop.Form_Render
             this.pic_back.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pic_back.TabIndex = 1;
             this.pic_back.TabStop = false;
+            this.pic_back.Click += new System.EventHandler(this.pic_back_Click);
             // 
-            // frm_AddCar
+            // frm_Car
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -452,7 +453,7 @@ namespace CarSellerShop.Form_Render
             this.Controls.Add(this.label3);
             this.Controls.Add(this.panel_HeadWrapper);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "frm_AddCar";
+            this.Name = "frm_Car";
             this.Text = "Car";
             this.panel_BrowseImage.ResumeLayout(false);
             this.panel_BrowseImage.PerformLayout();

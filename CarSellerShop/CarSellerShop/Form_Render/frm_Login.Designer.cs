@@ -32,8 +32,6 @@ namespace CarSellerShop.Form_Render
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frm_Login));
             this.customPanel1 = new CarSellerShop.Custom.CustomPanel();
             this.label1 = new System.Windows.Forms.Label();
-            this.pic_Minimize = new CarSellerShop.RJControls.RJCircularPictureBox();
-            this.pic_Close = new CarSellerShop.RJControls.RJCircularPictureBox();
             this.label2 = new System.Windows.Forms.Label();
             this.txt_Username = new CarSellerShop.RJControls.RJTextBox();
             this.label3 = new System.Windows.Forms.Label();
@@ -41,13 +39,15 @@ namespace CarSellerShop.Form_Render
             this.btn_Login = new CustomControls.RJControls.CustomButton();
             this.lb_ForgotPassword = new System.Windows.Forms.Label();
             this.lb_Register = new System.Windows.Forms.Label();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.lb_ChangePassword = new System.Windows.Forms.Label();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.pic_Minimize = new CarSellerShop.RJControls.RJCircularPictureBox();
+            this.pic_Close = new CarSellerShop.RJControls.RJCircularPictureBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.customPanel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pic_Minimize)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pic_Close)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -81,44 +81,6 @@ namespace CarSellerShop.Form_Render
             this.label1.TabIndex = 2;
             this.label1.Text = "Car Selling";
             // 
-            // pic_Minimize
-            // 
-            this.pic_Minimize.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(103)))), ((int)(((byte)(82)))), ((int)(((byte)(124)))));
-            this.pic_Minimize.BorderCapStyle = System.Drawing.Drawing2D.DashCap.Flat;
-            this.pic_Minimize.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(103)))), ((int)(((byte)(82)))), ((int)(((byte)(124)))));
-            this.pic_Minimize.BorderColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(103)))), ((int)(((byte)(82)))), ((int)(((byte)(124)))));
-            this.pic_Minimize.BorderLineStyle = System.Drawing.Drawing2D.DashStyle.Solid;
-            this.pic_Minimize.BorderSize = 3;
-            this.pic_Minimize.Dock = System.Windows.Forms.DockStyle.Right;
-            this.pic_Minimize.GradientAngle = 50F;
-            this.pic_Minimize.Image = ((System.Drawing.Image)(resources.GetObject("pic_Minimize.Image")));
-            this.pic_Minimize.Location = new System.Drawing.Point(340, 0);
-            this.pic_Minimize.Name = "pic_Minimize";
-            this.pic_Minimize.Size = new System.Drawing.Size(30, 30);
-            this.pic_Minimize.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pic_Minimize.TabIndex = 2;
-            this.pic_Minimize.TabStop = false;
-            this.pic_Minimize.Click += new System.EventHandler(this.pic_Minimize_Click);
-            // 
-            // pic_Close
-            // 
-            this.pic_Close.BackColor = System.Drawing.Color.Red;
-            this.pic_Close.BorderCapStyle = System.Drawing.Drawing2D.DashCap.Flat;
-            this.pic_Close.BorderColor = System.Drawing.Color.Red;
-            this.pic_Close.BorderColor2 = System.Drawing.Color.Red;
-            this.pic_Close.BorderLineStyle = System.Drawing.Drawing2D.DashStyle.Solid;
-            this.pic_Close.BorderSize = 3;
-            this.pic_Close.Dock = System.Windows.Forms.DockStyle.Right;
-            this.pic_Close.GradientAngle = 50F;
-            this.pic_Close.Image = ((System.Drawing.Image)(resources.GetObject("pic_Close.Image")));
-            this.pic_Close.Location = new System.Drawing.Point(370, 0);
-            this.pic_Close.Name = "pic_Close";
-            this.pic_Close.Size = new System.Drawing.Size(30, 30);
-            this.pic_Close.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pic_Close.TabIndex = 2;
-            this.pic_Close.TabStop = false;
-            this.pic_Close.Click += new System.EventHandler(this.pic_Close_Click);
-            // 
             // label2
             // 
             this.label2.Anchor = System.Windows.Forms.AnchorStyles.Left;
@@ -127,9 +89,9 @@ namespace CarSellerShop.Form_Render
             this.label2.ForeColor = System.Drawing.Color.White;
             this.label2.Location = new System.Drawing.Point(12, 320);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(103, 23);
+            this.label2.Size = new System.Drawing.Size(60, 23);
             this.label2.TabIndex = 3;
-            this.label2.Text = "User Name";
+            this.label2.Text = "Email";
             // 
             // txt_Username
             // 
@@ -247,6 +209,20 @@ namespace CarSellerShop.Form_Render
             this.lb_Register.MouseLeave += new System.EventHandler(this.lb_ForgotPassword_MouseLeave);
             this.lb_Register.MouseHover += new System.EventHandler(this.lb_ForgotPassword_MouseHover);
             // 
+            // lb_ChangePassword
+            // 
+            this.lb_ChangePassword.AutoSize = true;
+            this.lb_ChangePassword.Font = new System.Drawing.Font("Mongolian Baiti", 15.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Italic | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_ChangePassword.ForeColor = System.Drawing.Color.White;
+            this.lb_ChangePassword.Location = new System.Drawing.Point(226, 535);
+            this.lb_ChangePassword.Name = "lb_ChangePassword";
+            this.lb_ChangePassword.Size = new System.Drawing.Size(161, 23);
+            this.lb_ChangePassword.TabIndex = 4;
+            this.lb_ChangePassword.Text = "Change Password";
+            this.lb_ChangePassword.Click += new System.EventHandler(this.lb_ChangePassword_Click);
+            this.lb_ChangePassword.MouseLeave += new System.EventHandler(this.lb_ForgotPassword_MouseLeave);
+            this.lb_ChangePassword.MouseHover += new System.EventHandler(this.lb_ForgotPassword_MouseHover);
+            // 
             // pictureBox2
             // 
             this.pictureBox2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
@@ -259,6 +235,44 @@ namespace CarSellerShop.Form_Render
             this.pictureBox2.TabIndex = 2;
             this.pictureBox2.TabStop = false;
             // 
+            // pic_Minimize
+            // 
+            this.pic_Minimize.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(103)))), ((int)(((byte)(82)))), ((int)(((byte)(124)))));
+            this.pic_Minimize.BorderCapStyle = System.Drawing.Drawing2D.DashCap.Flat;
+            this.pic_Minimize.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(103)))), ((int)(((byte)(82)))), ((int)(((byte)(124)))));
+            this.pic_Minimize.BorderColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(103)))), ((int)(((byte)(82)))), ((int)(((byte)(124)))));
+            this.pic_Minimize.BorderLineStyle = System.Drawing.Drawing2D.DashStyle.Solid;
+            this.pic_Minimize.BorderSize = 3;
+            this.pic_Minimize.Dock = System.Windows.Forms.DockStyle.Right;
+            this.pic_Minimize.GradientAngle = 50F;
+            this.pic_Minimize.Image = ((System.Drawing.Image)(resources.GetObject("pic_Minimize.Image")));
+            this.pic_Minimize.Location = new System.Drawing.Point(340, 0);
+            this.pic_Minimize.Name = "pic_Minimize";
+            this.pic_Minimize.Size = new System.Drawing.Size(30, 30);
+            this.pic_Minimize.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pic_Minimize.TabIndex = 2;
+            this.pic_Minimize.TabStop = false;
+            this.pic_Minimize.Click += new System.EventHandler(this.pic_Minimize_Click);
+            // 
+            // pic_Close
+            // 
+            this.pic_Close.BackColor = System.Drawing.Color.Red;
+            this.pic_Close.BorderCapStyle = System.Drawing.Drawing2D.DashCap.Flat;
+            this.pic_Close.BorderColor = System.Drawing.Color.Red;
+            this.pic_Close.BorderColor2 = System.Drawing.Color.Red;
+            this.pic_Close.BorderLineStyle = System.Drawing.Drawing2D.DashStyle.Solid;
+            this.pic_Close.BorderSize = 3;
+            this.pic_Close.Dock = System.Windows.Forms.DockStyle.Right;
+            this.pic_Close.GradientAngle = 50F;
+            this.pic_Close.Image = ((System.Drawing.Image)(resources.GetObject("pic_Close.Image")));
+            this.pic_Close.Location = new System.Drawing.Point(370, 0);
+            this.pic_Close.Name = "pic_Close";
+            this.pic_Close.Size = new System.Drawing.Size(30, 30);
+            this.pic_Close.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pic_Close.TabIndex = 2;
+            this.pic_Close.TabStop = false;
+            this.pic_Close.MouseUp += new System.Windows.Forms.MouseEventHandler(this.pic_Close_MouseUp);
+            // 
             // pictureBox1
             // 
             this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Bottom;
@@ -269,20 +283,6 @@ namespace CarSellerShop.Form_Render
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
-            // 
-            // lb_ChangePassword
-            // 
-            this.lb_ChangePassword.AutoSize = true;
-            this.lb_ChangePassword.Font = new System.Drawing.Font("Mongolian Baiti", 15.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Italic | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_ChangePassword.ForeColor = System.Drawing.Color.White;
-            this.lb_ChangePassword.Location = new System.Drawing.Point(226, 535);
-            this.lb_ChangePassword.Name = "lb_ChangePassword";
-            this.lb_ChangePassword.Size = new System.Drawing.Size(161, 23);
-            this.lb_ChangePassword.TabIndex = 4;
-            this.lb_ChangePassword.Text = "Change Password";
-            this.lb_ChangePassword.Click += new System.EventHandler(this.lb_ForgotPassword_Click);
-            this.lb_ChangePassword.MouseLeave += new System.EventHandler(this.lb_ForgotPassword_MouseLeave);
-            this.lb_ChangePassword.MouseHover += new System.EventHandler(this.lb_ForgotPassword_MouseHover);
             // 
             // frm_Login
             // 
@@ -308,11 +308,12 @@ namespace CarSellerShop.Form_Render
             this.Name = "frm_Login";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Car Selling";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frm_Login_FormClosing);
             this.customPanel1.ResumeLayout(false);
             this.customPanel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pic_Minimize)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pic_Close)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

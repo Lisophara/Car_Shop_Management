@@ -32,7 +32,8 @@ namespace CarSellerShop.Form_Render
         public frm_Sell()
         {
             InitializeComponent();
-            txt_NationalID.LostFocus += Txt_NationalID_LostFocus;
+
+            txt_NationalID.Leave += Txt_NationalID_Leave;
         }
 
         #endregion
@@ -65,12 +66,7 @@ namespace CarSellerShop.Form_Render
             }
         }
 
-        private void btn_Minimize_MouseUp(object sender, MouseEventArgs e)
-        {
-            this.WindowState = FormWindowState.Minimized;
-        }
-
-        private void btn_Close_MouseUp(object sender, MouseEventArgs e)
+        private void btn_Close_Click(object sender, EventArgs e)
         {
             this.Dispose();
         }
@@ -88,21 +84,31 @@ namespace CarSellerShop.Form_Render
                 image = "";
                 panel_BrowseImage.Visible = true;
             }
-            Sold();
         }
 
         private void btn_Sell_Click(object sender, EventArgs e)
         {
-            Customer();
+            if(!Customer()) return;
+            Sold(txt_NationalID.TextValue);
         }
 
-        private void Txt_NationalID_LostFocus(object sender, EventArgs e)
+        private void Txt_NationalID_Leave(object sender, EventArgs e)
         {
-            DataTable customer = data.Read_Data(col: "*", table: "customer", conditionStatement: $"WHERE `identifier` = '{txt_NationalID.TextValue}'");
-            isCustomerExist = customer.Rows.Count <= 0;
+            DataTable customers = data.Read_Data(col: "*", table: "customer", conditionStatement: $"WHERE `national_id` = '{txt_NationalID.TextValue}'");
+            isCustomerExist = customers.Rows.Count > 0;
             if (isCustomerExist)
             {
-
+                var customer = customers.Rows[0];
+                txt_Fname.TextValue = customer[1].ToString();
+                txt_Lname.TextValue = customer[2].ToString();
+                cmb_Gender.SelectedIndex = customer[3].ToString() == "M" ? 0 : 1;
+                dp_Dob.Text = customer[4].ToString();
+                txt_Phone.TextValue = customer[5].ToString();
+                txt_Phone1.TextValue = customer[6].ToString();
+                txt_Address.TextValue = customer[7].ToString();
+                pic_Image.ImageLocation = customer[8].ToString();
+                panel_BrowseImage.Visible = false;
+                image = customer[8].ToString();
             }
         }
 
@@ -122,46 +128,75 @@ namespace CarSellerShop.Form_Render
             }
         }
 
-        private void Customer()
+        private bool Customer()
         {
-            
+
             if (txt_Fname.TextValue == "" || txt_Lname.TextValue == "" || txt_Phone.TextValue == "" || pic_Image.Image == null ||
                 txt_NationalID.TextValue == "")
             {
                 MessageBox.Show("Please fill all field box like \nFirst or Last name \nNational ID \nPhone number \nBrowse Image",
                     "Fill Requirement", MessageBoxButtons.OK, MessageBoxIcon.Hand);
-                return;
+                return false;
             }
             else if (txt_Phone.TextValue.Length > 10 || txt_NationalID.TextValue.Length > 14)
             {
                 MessageBox.Show("Phone number should be less than 10 digit and National ID should be less than 14 digit",
                                     "Fill Requirement", MessageBoxButtons.OK, MessageBoxIcon.Hand);
-                return;
+                return false;
             }
             char gender = cmb_Gender.SelectedIndex == 0 ? 'M' : 'F';
             var dp = dp_Dob.Value;
-            data.Write_Data(table: "`customer`", $"`national_id` = '{txt_NationalID.TextValue}'," +
-                $"`fname` = {txt_Fname.TextValue},"+
-                $"`lname` = {txt_Lname.TextValue},"+
-                $"`gender` = {gender},"+
-                $"`dob` = DATE('{dp.Year}-{dp.Month}-{dp.Day}')," +
-                $"`phone` = {txt_Phone.TextValue},"+
-                $"`phone1` = {txt_Phone1.TextValue},"+
-                $"`address` = {txt_Address.TextValue},"+
-                $"`image_path` = {image},"+
-                $"DEFAULT");
+            if (isCustomerExist)
+            {
+                string image_path = data.SaveImage(image);
+                return data.Update_Data(table: "customer", col_Value: 
+                    $"`first_name` = '{txt_Fname.TextValue}'," +
+                    $"`last_name` = '{txt_Lname.TextValue}'," +
+                    $"`gender` = '{gender}'," +
+                    $"`dob` = DATE('{dp.Year}-{dp.Month}-{dp.Day}')," +
+                    $"`phone` = '{txt_Phone1.TextValue}'," +
+                    $"`phone2` = '{txt_Phone.TextValue}'," +
+                    $"`addr` = '{txt_Address.TextValue}'," +
+                    $"`image_path` = '{image_path}'",
+                    condition: $"`national_id` = {txt_NationalID.TextValue}");
+            }
+            else
+            {
+                return data.Write_Data(table: "`customer`", $"`national_id` = '{txt_NationalID.TextValue}'," +
+                    $"'{txt_Fname.TextValue}',"+
+                    $"'{txt_Lname.TextValue}',"+
+                    $"'{gender}',"+
+                    $"DATE('{dp.Year}-{dp.Month}-{dp.Day}')," +
+                    $"'{txt_Phone.TextValue}',"+
+                    $"'{txt_Phone1.TextValue}',"+
+                    $"'{txt_Address.TextValue}',"+
+                    $"'{image}',"+
+                    $"DEFAULT");
+            }
+            return true;
         }
     
         
-        private void Sold()
+        private void Sold(string customer_national_id)
         {
+            bool success = false;
+            DateTime date = DateTime.Today;
+            DateTime time = DateTime.Now;
+            //date.TimeOfDay
             List<string> lists = (List<string>)this.Tag;
             if (lists.Count <= 0) return;
             foreach (var identifier in lists)
             {
-                data.Update_Data("`car`", $"`is_sold` = 1", $"WHERE `identifier` = '{identifier}'");
+                success = data.Update_Data("car", $"`is_sold` = 1", $"`identifier` = '{identifier}'");
+                //{ Properties.Settings.Default.staff_id}
+                data.Write_Data("sell_record", $"DEFAULT, '{date.Year}-{date.Month}-{date.Day}', '{time.Hour}:{time.Minute}:{time.Second}', 1, '{customer_national_id}' ,'{identifier}', 0, 0, 'null'");
             }
-            MessageBox.Show("Success!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            if(success) MessageBox.Show("Success!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            else
+            {
+                MessageBox.Show("Something gone wrong!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+
         }
 
         #endregion
