@@ -69,7 +69,7 @@ namespace CarSellerShop.Form_Render
                     btn_Histories.Text = "Histories";
                     btn_Bills.Text = "Bills";
                     btn_Logout.Text = "Logout";
-                    btn_Staff.Text = "New Staff";
+                    btn_Staff.Text = "Staff";
                     btn_AddNewCar.Text = "Add New Car";
                 }
 
@@ -188,12 +188,13 @@ namespace CarSellerShop.Form_Render
             char[] searchData = txt_Search.TextValue.ToCharArray();
             if(searchData[0] == '#')
             {
-                search = $"AND LOWER(`identifier`) LIKE '{txt_Search.TextValue.Replace('#', ' ').Trim().ToLower()}%'";
+                search = $"AND LOWER(`identifier`) LIKE '%{txt_Search.TextValue.Replace('#', ' ').Trim().ToLower()}%'";
             }
             else
             {
-                search = $"AND LOWER(`model_name`) LIKE '{txt_Search.TextValue.Trim().ToLower()}%'";
+                search = $"AND LOWER(`model_name`) LIKE '%{txt_Search.TextValue.Trim().ToLower()}%'";
             }
+            tb_Car.Controls.Clear();
             Load($"WHERE `is_sold` IS NOT TRUE {search}");
         }
 

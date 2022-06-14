@@ -32,8 +32,6 @@ namespace CarSellerShop.Form_Render
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frm_Product));
             this.tb_Car = new System.Windows.Forms.TableLayoutPanel();
             this.panel_head = new System.Windows.Forms.Panel();
-            this.iconButton1 = new CustomControls.IconButton();
-            this.txt_Search = new CarSellerShop.RJControls.RJTextBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel_orderList = new System.Windows.Forms.Panel();
             this.panel_OrderLists = new System.Windows.Forms.Panel();
@@ -67,6 +65,8 @@ namespace CarSellerShop.Form_Render
             this.lb_Role = new System.Windows.Forms.Label();
             this.lb_FullName = new System.Windows.Forms.Label();
             this.pic_staff = new CarSellerShop.RJControls.RJCircularPictureBox();
+            this.iconButton1 = new CustomControls.IconButton();
+            this.txt_Search = new CarSellerShop.RJControls.RJTextBox();
             this.panel_head.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel_orderList.SuspendLayout();
@@ -114,58 +114,6 @@ namespace CarSellerShop.Form_Render
             this.panel_head.Padding = new System.Windows.Forms.Padding(20);
             this.panel_head.Size = new System.Drawing.Size(866, 131);
             this.panel_head.TabIndex = 3;
-            // 
-            // iconButton1
-            // 
-            this.iconButton1.BackColor = System.Drawing.Color.White;
-            this.iconButton1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(166)))), ((int)(((byte)(193)))), ((int)(((byte)(238)))));
-            this.iconButton1.BorderRadius = 0;
-            this.iconButton1.BorderSize = 0;
-            this.iconButton1.ButtonImage = ((System.Drawing.Image)(resources.GetObject("iconButton1.ButtonImage")));
-            this.iconButton1.ClickColor = System.Drawing.Color.LightGray;
-            this.iconButton1.EnableImage = true;
-            this.iconButton1.FlatAppearance.BorderSize = 0;
-            this.iconButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconButton1.ForeColor = System.Drawing.Color.Wheat;
-            this.iconButton1.HoverColor = System.Drawing.Color.WhiteSmoke;
-            this.iconButton1.ImageX = 0;
-            this.iconButton1.Location = new System.Drawing.Point(641, 50);
-            this.iconButton1.MarginFromImage = 0;
-            this.iconButton1.Name = "iconButton1";
-            this.iconButton1.OnClickEvent = true;
-            this.iconButton1.OnHoverEvent = true;
-            this.iconButton1.Size = new System.Drawing.Size(30, 30);
-            this.iconButton1.SizeOfImage = 30;
-            this.iconButton1.TabIndex = 2;
-            this.iconButton1.TextColor = System.Drawing.Color.Wheat;
-            this.iconButton1.TextValueAlign = CarSellerShop.Data.TextAlignment.CENTER;
-            this.iconButton1.UseVisualStyleBackColor = false;
-            // 
-            // txt_Search
-            // 
-            this.txt_Search.BackColor = System.Drawing.SystemColors.Window;
-            this.txt_Search.BorderColor = System.Drawing.Color.MediumSlateBlue;
-            this.txt_Search.BorderFocusColor = System.Drawing.Color.HotPink;
-            this.txt_Search.BorderRadius = 15;
-            this.txt_Search.BorderSize = 2;
-            this.txt_Search.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
-            this.txt_Search.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.txt_Search.Location = new System.Drawing.Point(301, 44);
-            this.txt_Search.Margin = new System.Windows.Forms.Padding(4);
-            this.txt_Search.Multiline = false;
-            this.txt_Search.Name = "txt_Search";
-            this.txt_Search.OnlyNumeric = false;
-            this.txt_Search.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
-            this.txt_Search.PasswordChar = false;
-            this.txt_Search.PlaceholderColor = System.Drawing.Color.DarkGray;
-            this.txt_Search.PlaceholderText = "Identifier / Name";
-            this.txt_Search.Size = new System.Drawing.Size(333, 40);
-            this.txt_Search.TabIndex = 1;
-            this.txt_Search.TextAlignment = System.Windows.Forms.HorizontalAlignment.Center;
-            this.txt_Search.Texts = "";
-            this.txt_Search.TextValue = "";
-            this.txt_Search.UnderlinedStyle = false;
-            this.txt_Search._TextChanged += new System.EventHandler(this.txt_Search__TextChanged);
             // 
             // pictureBox1
             // 
@@ -274,7 +222,7 @@ namespace CarSellerShop.Form_Render
             this.lb_ItemCount.Name = "lb_ItemCount";
             this.lb_ItemCount.Size = new System.Drawing.Size(162, 20);
             this.lb_ItemCount.TabIndex = 0;
-            this.lb_ItemCount.Text = "0";
+            this.lb_ItemCount.Text = "$0";
             this.lb_ItemCount.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // label6
@@ -682,6 +630,58 @@ namespace CarSellerShop.Form_Render
             this.pic_staff.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pic_staff.TabIndex = 7;
             this.pic_staff.TabStop = false;
+            // 
+            // iconButton1
+            // 
+            this.iconButton1.BackColor = System.Drawing.Color.White;
+            this.iconButton1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(166)))), ((int)(((byte)(193)))), ((int)(((byte)(238)))));
+            this.iconButton1.BorderRadius = 0;
+            this.iconButton1.BorderSize = 0;
+            this.iconButton1.ButtonImage = ((System.Drawing.Image)(resources.GetObject("iconButton1.ButtonImage")));
+            this.iconButton1.ClickColor = System.Drawing.Color.LightGray;
+            this.iconButton1.EnableImage = true;
+            this.iconButton1.FlatAppearance.BorderSize = 0;
+            this.iconButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.iconButton1.ForeColor = System.Drawing.Color.Wheat;
+            this.iconButton1.HoverColor = System.Drawing.Color.WhiteSmoke;
+            this.iconButton1.ImageX = 0;
+            this.iconButton1.Location = new System.Drawing.Point(641, 50);
+            this.iconButton1.MarginFromImage = 0;
+            this.iconButton1.Name = "iconButton1";
+            this.iconButton1.OnClickEvent = true;
+            this.iconButton1.OnHoverEvent = true;
+            this.iconButton1.Size = new System.Drawing.Size(30, 30);
+            this.iconButton1.SizeOfImage = 30;
+            this.iconButton1.TabIndex = 2;
+            this.iconButton1.TextColor = System.Drawing.Color.Wheat;
+            this.iconButton1.TextValueAlign = CarSellerShop.Data.TextAlignment.CENTER;
+            this.iconButton1.UseVisualStyleBackColor = false;
+            // 
+            // txt_Search
+            // 
+            this.txt_Search.BackColor = System.Drawing.SystemColors.Window;
+            this.txt_Search.BorderColor = System.Drawing.Color.MediumSlateBlue;
+            this.txt_Search.BorderFocusColor = System.Drawing.Color.HotPink;
+            this.txt_Search.BorderRadius = 15;
+            this.txt_Search.BorderSize = 2;
+            this.txt_Search.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
+            this.txt_Search.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.txt_Search.Location = new System.Drawing.Point(301, 44);
+            this.txt_Search.Margin = new System.Windows.Forms.Padding(4);
+            this.txt_Search.Multiline = false;
+            this.txt_Search.Name = "txt_Search";
+            this.txt_Search.OnlyNumeric = false;
+            this.txt_Search.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
+            this.txt_Search.PasswordChar = false;
+            this.txt_Search.PlaceholderColor = System.Drawing.Color.DarkGray;
+            this.txt_Search.PlaceholderText = "Identifier / Name";
+            this.txt_Search.Size = new System.Drawing.Size(333, 40);
+            this.txt_Search.TabIndex = 1;
+            this.txt_Search.TextAlignment = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txt_Search.Texts = "";
+            this.txt_Search.TextValue = "";
+            this.txt_Search.UnderlinedStyle = false;
+            this.txt_Search._TextChanged += new System.EventHandler(this.txt_Search__TextChanged);
             // 
             // frm_Product
             // 
