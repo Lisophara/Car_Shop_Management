@@ -79,7 +79,7 @@ namespace CarSellerShop.SubItem
             lb_Year.Text = data[3].ToString();
             pic_Car.ImageLocation = data[4].ToString();
             lb_Status.Text = data[5].ToString();
-            lb_price.Text = data[6].ToString();
+            lb_price.Text = "$" + data[6].ToString();
         }
     }
 }

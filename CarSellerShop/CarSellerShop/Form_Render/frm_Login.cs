@@ -13,33 +13,11 @@ namespace CarSellerShop.Form_Render
         {
             InitializeComponent();
             Data_IO data = new Data_IO();
-            if (data.Read_Data("*", "`account`", conditionStatement: "WHERE `id` = 1").Rows.Count <= 0)
+            if(data.Read_Data("*", "`account`", conditionStatement: "WHERE `id` = 1").Rows.Count <= 0)
             {
-                data.Write_Data("stuff_state", "1, 'Admin'");
-                data.Write_Data("stuff_state", "2, 'Editor'");
-                data.Write_Data("stuff_state", "3, 'Cashier'");
-                data.Write_Data(table: "`stuff_info`",
-                            dataToInsert: $"1, " +
-                            $"'0000000000', " +
-                            $"'Super', " +
-                            $"'Admin', " +
-                            $"'M', " +
-                            $"DATE('2000-5-20'), " +
-                            $"'0962031234', " +
-                            $"'PP Kork tul sleng', " +
-                            $"'', " +
-                            $"1, " +
-                            $"DEFAULT");
-                data.Write_Data(table: "`account`",
-                dataToInsert: $"1," +
-                $"'admin@gmail.com'," +
-                $"'admin'," +
-                $"'admin'," +
-                $"1," +
-                $"DATE('{DateTime.Now.Year}-{DateTime.Now.Month}-{DateTime.Now.Day}')," +
-                $"FALSE");
+                new DbSeeder();
             }
-          
+
         }
 
         // Event to Close Application

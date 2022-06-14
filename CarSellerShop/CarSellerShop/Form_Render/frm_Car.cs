@@ -87,77 +87,67 @@ namespace CarSellerShop.Form_Render
         private void btn_Action_Click(object sender, EventArgs e)
         {
             data = new Data_IO();
+            bool success = false;
+            string image_path = "";
+            string local_identifier = txt_Identifier.TextValue.Trim();
+            string model = txt_Model.TextValue.Trim();
+            string color = txt_Color.TextValue.Trim();
+            string created_year = txt_CreateYear.TextValue.Trim();
+            string price = txt_Price.TextValue.Trim();
             //`identifier`, `model_name`, `color`, `create_year`, `image`, `car_status`, `car_type`, `price`
             if (!update)
             {
                 if(MessageBox.Show("Do you want to update this record?", "Update Record", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
-                    string image_path = data.SaveImage(image);
-                    bool save_success = false;
-                    save_success = data.Write_Data(table: "car",
-                                    dataToInsert: $"'{txt_Identifier.TextValue}'," +
-                                    $"'{txt_Model.TextValue}'," +
-                                    $"'{txt_Color.TextValue}'," +
-                                    $"{txt_CreateYear}," +
+                    image_path = data.SaveImage(image);
+                    
+                    success = data.Write_Data(table: "`car`",
+                                    dataToInsert: 
+                                    $"'{local_identifier}'," +
+                                    $"'{model}'," +
+                                    $"'{color}'," +
+                                    $"{created_year}," +
                                     $"'{image_path}'," +
                                     $"{cmb_Status.SelectedIndex + 1}," +
                                     $"{cmb_Type.SelectedIndex + 1}," +
-                                    $"{txt_Price.TextValue}"+
+                                    $"{price},"+
                                     $"FALSE");
-                    if (save_success)
-                    {
-                        MessageBox.Show("Save!", "Save Success!", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        txt_Model.TextValue = "";
-                        txt_Color.TextValue = "";
-                        txt_CreateYear.TextValue = "";
-                        image_path = "";
-                        cmb_Type.SelectedIndex = 2;
-                        cmb_Status.SelectedIndex = 0;
-                        txt_Price.TextValue = "";
-                        panel_BrowseImage.Visible = true;
-                        panel_BrowseImage.Enabled = true;
-                    }
-                    else
-                    {
-                        MessageBox.Show("Some information are missing or Incorrect format!", "Something gone wrong!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    }
                 }
             }
             else
             {
                 if(MessageBox.Show("Do you want to update this record?", "Update Record", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
-                    string image_path = data.SaveImage(image);
-                    bool update_success = false;
-                    update_success = data.Update_Data(table: "car",
+                    image_path = data.SaveImage(image);
+                    success = data.Update_Data(table: "car",
                                      //identifier, model_name, color, create_year, image, car_status, car_type, price, is_sold
-                                     col_Value: $"`model_name` = '{txt_Model.TextValue}'" +
-                                         $"`color` = '{txt_Color.TextValue}'" +
-                                         $"`create_year` = {txt_CreateYear.TextValue}" +
+                                     col_Value: $"`model_name` = '{model}'" +
+                                         $"`color` = '{color}'" +
+                                         $"`create_year` = {created_year}" +
                                          $"`image` = '{image_path}'" +
                                          $"`car_status` = {cmb_Status.SelectedIndex + 1}" +
                                          $"`car_type` = {cmb_Type.SelectedIndex + 1}" +
-                                         $"`price` = {txt_Price.TextValue}",
+                                         $"`price` = {price}",
                                      condition: $"WHERE identifier = {identifier}");
-                    if (update_success)
-                    {
-                        MessageBox.Show("Update!", "Update Success!", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        txt_Model.TextValue = "";
-                        txt_Color.TextValue = "";
-                        txt_CreateYear.TextValue = "";
-                        image_path = "";
-                        cmb_Type.SelectedIndex = 2;
-                        cmb_Status.SelectedIndex = 0;
-                        txt_Price.TextValue = "";
-                        panel_BrowseImage.Visible = true;
-                        panel_BrowseImage.Enabled = true;
-                    }
-
-                    else
-                    {
-                        MessageBox.Show("Some information are missing or Incorrect format!", "Something gone wrong!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    }
                 }
+            }
+            if (success)
+            {
+                MessageBox.Show(update ? "Update!": "Store!", update ? "Update Success!" : "Store Success!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                txt_Identifier.TextValue = "";
+                txt_Model.TextValue = "";
+                txt_Color.TextValue = "";
+                txt_CreateYear.TextValue = "";
+                image_path = "";
+                cmb_Type.SelectedIndex = 2;
+                cmb_Status.SelectedIndex = 0;
+                txt_Price.TextValue = "";
+                panel_BrowseImage.Visible = true;
+                panel_BrowseImage.Enabled = true;
+            }
+            else
+            {
+                MessageBox.Show("Some information are missing or Incorrect format!", "Something gone wrong!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
 
 

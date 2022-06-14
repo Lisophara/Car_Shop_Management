@@ -127,6 +127,7 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Data\Data_IO.cs" />
+    <Compile Include="Data\DbSeeder.cs" />
     <Compile Include="Data\TextAlignment.cs" />
     <Compile Include="Form_Render\frm_Car.cs">
       <SubType>Form</SubType>

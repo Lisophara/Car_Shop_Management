@@ -21,7 +21,7 @@ namespace CarSellerShop.Data
 
         #endregion
 
-        string connectionStr()
+        protected string connectionStr()
         {
             return $"Server={host};user id={user};password={pass};database={database}";
         }
